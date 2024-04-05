@@ -8,11 +8,38 @@
 import UIKit
 
 class GoalsTableViewController: UITableViewController {
-
+    
+    
+    // Test Sample Goals
+    var workSection = Section(name: "Work", goals: [
+        Goal(name: "Contracts in 2024", description: "How many Contracts we've gotten in 2024", tallys: 4, icon: "💼"),
+        Goal(name: "Lunches with Clients", description: "How many times we've gone out for lunches with clients in 2024", tallys: 32, icon: "🍲")
+    ])
+    var homeSection = Section(name: "Home", goals: [
+        Goal(name: "Perfect Nights Sleep", description: "Days with perfect nights sleep", tallys: 0, icon: "😴"),
+        Goal(name: "Cook Dinner", description: "Cooked dinner instead of going out", tallys: 42, icon: "👩‍🍳"),
+        Goal(name: "Play with Dog", description: "Times played with dog!", tallys: 96, icon: "J")
+    ])
+    var selfCareSection = Section(name: "Self-Care", goals: [
+        Goal(name: "Meditation Minutes", description: "Minutes Meditating in 2024", tallys: 1_234, icon: "🧘‍♀️"),
+        Goal(name: "Daily Vegetables", description: "Days where I ate at least 5 servings of fruits or vegetables a day", tallys: 45, icon: "🥦"),
+        Goal(name: "Video Game Hours", description: "Hours I've played video games in 2024", tallys: 42, icon: "🎮"),
+        Goal(name: "Date Nights", description: "Date nights with hubby!", tallys: 12, icon: "💕")
+    ])
+    var communitySection = Section(name: "Community", goals: [
+        Goal(name: "Participants", description: "How many participents in the Community activity", tallys: 153, icon: "P")
+    ])
+    var sections: [Section] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Test Sample Section
+        sections = [workSection, homeSection, selfCareSection, communitySection]
+        
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,27 +56,31 @@ class GoalsTableViewController: UITableViewController {
     
     
     
-    // MARK: - Table view data source
-
+    // Populates the number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return sections.count
     }
 
+    // Populates the number of rows in a section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sections[section].goals.count
     }
 
-    /*
+    
+    // Populates the cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath)
+        
+        let goal = sections[indexPath.section].goals[indexPath.row]
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = "\(goal.icon)  \(goal.name)"
+        content.secondaryText = "\(goal.tallys)"
+        cell.contentConfiguration = content
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

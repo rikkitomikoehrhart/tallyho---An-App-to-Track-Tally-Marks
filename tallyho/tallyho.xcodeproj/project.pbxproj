@@ -14,6 +14,8 @@
 		EB08580D2BB8C2FD00B8502D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EB08580C2BB8C2FD00B8502D /* Base */; };
 		EB0858182BB8CDF700B8502D /* Controllers in Resources */ = {isa = PBXBuildFile; fileRef = EB0858172BB8CDF700B8502D /* Controllers */; };
 		EBAFB8C52BC03DDE00CC0B2F /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */; };
+		EBAFB8C82BC0443200CC0B2F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C72BC0443100CC0B2F /* Goal.swift */; };
+		EBAFB8CA2BC0444F00CC0B2F /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C92BC0444F00CC0B2F /* Section.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		EB08580E2BB8C2FD00B8502D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB0858172BB8CDF700B8502D /* Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controllers; sourceTree = "<group>"; };
 		EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoalsTableViewController.swift; path = Controllers/GoalsTableViewController.swift; sourceTree = "<group>"; };
+		EBAFB8C72BC0443100CC0B2F /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		EBAFB8C92BC0444F00CC0B2F /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		EB0857FF2BB8C2FA00B8502D /* tallyho */ = {
 			isa = PBXGroup;
 			children = (
+				EBAFB8C62BC0442400CC0B2F /* Model */,
 				EB0858172BB8CDF700B8502D /* Controllers */,
 				EB0858002BB8C2FA00B8502D /* AppDelegate.swift */,
 				EB0858022BB8C2FA00B8502D /* SceneDelegate.swift */,
@@ -68,6 +73,15 @@
 				EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */,
 			);
 			path = tallyho;
+			sourceTree = "<group>";
+		};
+		EBAFB8C62BC0442400CC0B2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EBAFB8C72BC0443100CC0B2F /* Goal.swift */,
+				EBAFB8C92BC0444F00CC0B2F /* Section.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +156,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBAFB8CA2BC0444F00CC0B2F /* Section.swift in Sources */,
+				EBAFB8C82BC0443200CC0B2F /* Goal.swift in Sources */,
 				EB0858012BB8C2FA00B8502D /* AppDelegate.swift in Sources */,
 				EBAFB8C52BC03DDE00CC0B2F /* GoalsTableViewController.swift in Sources */,
 				EB0858032BB8C2FA00B8502D /* SceneDelegate.swift in Sources */,
