@@ -32,6 +32,16 @@ class GoalsTableViewController: UITableViewController {
     var sections: [Section] = []
     
     
+    
+    
+    // OUTLETS
+    
+    
+    
+    
+    
+    
+    
     // Loading
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +53,7 @@ class GoalsTableViewController: UITableViewController {
         
         // This sets the background of the table view to the orange and blue gradient background image
         tableView.backgroundView = UIImageView(image: UIImage(named: "orangebluebackground"))
+        
         
     }
     
@@ -108,10 +119,19 @@ class GoalsTableViewController: UITableViewController {
     }
     
     
-    // Editing Rows
+    // Editing/Deleting Rows
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
+        return .delete
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            var sectionGoals = sections[indexPath.section].goals
+            sectionGoals.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     
     
     /*
@@ -124,14 +144,7 @@ class GoalsTableViewController: UITableViewController {
 
     /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
+
     */
 
 

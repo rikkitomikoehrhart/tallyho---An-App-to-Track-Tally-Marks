@@ -7,17 +7,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Goals-->
         <scene sceneID="ebJ-y0-V9T">
             <objects>
-                <tableViewController id="dYY-GL-OUQ" customClass="GoalsTableViewController" customModule="tallyho" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" id="dYY-GL-OUQ" customClass="GoalsTableViewController" customModule="tallyho" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="AyU-KI-xfK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GoalCell" id="ahQ-5c-6QJ" customClass="GoalsTableViewCell" customModule="tallyho" customModuleProvider="target">
-                                <rect key="frame" x="20" y="55.333332061767578" width="353" height="39.333332061767578"/>
+                                <rect key="frame" x="20" y="38" width="353" height="39.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ahQ-5c-6QJ" id="rS5-DR-63L">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="39.333332061767578"/>
@@ -83,15 +83,28 @@
                             <outlet property="delegate" destination="dYY-GL-OUQ" id="61T-wp-0p3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="obl-T3-M7d">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="zNv-Jw-Fgz">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="editButtonTapped:" destination="dYY-GL-OUQ" id="qci-wj-KUf"/>
-                            </connections>
+                    <navigationItem key="navigationItem" title="Goals" id="obl-T3-M7d">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="lmQ-Bh-lS0">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="g8T-DG-PbM">
+                                <rect key="frame" x="16" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Edit" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.0" green="0.2666666667" blue="0.62352941179999999" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="kse-tv-aT5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4Ua-yR-6P6">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" red="0.0" green="0.2666666667" blue="0.62352941179999999" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
-                    <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irz-o5-huI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -101,11 +114,20 @@
         <!--Navigation Controller-->
         <scene sceneID="uGj-bm-IR0">
             <objects>
-                <navigationController navigationBarHidden="YES" id="sNm-vd-Ukq" sceneMemberID="viewController">
-                    <nil key="simulatedTopBarMetrics"/>
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" hidesBottomBarWhenPushed="YES" id="sNm-vd-Ukq" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y7U-JM-93v">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Y7U-JM-93v">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" red="0.0" green="0.2666666667" blue="0.62352941179999999" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="2" vertical="1"/>
+                        </textAttributes>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="upQ-3e-r1w">
                         <autoresizingMask key="autoresizingMask"/>
