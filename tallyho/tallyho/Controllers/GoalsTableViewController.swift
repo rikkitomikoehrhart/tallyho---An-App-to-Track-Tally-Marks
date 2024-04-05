@@ -71,12 +71,22 @@ class GoalsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath)
         
+        // Grabs the current goal
         let goal = sections[indexPath.section].goals[indexPath.row]
         
+        // Grabs the goal icon and sets a fixed width
+        let goalIcon = String(goal.icon).padding(toLength: 5, withPad: " ", startingAt: 0)
+        
+        // Sets the content for the cell
         var content = cell.defaultContentConfiguration()
-        content.text = "\(goal.icon)  \(goal.name)"
+        content.text = "\(goalIcon) \(goal.name)"
         content.secondaryText = "\(goal.tallys)"
+        
+        // Sets the cell's content
         cell.contentConfiguration = content
+        
+        // Sets the background of the cell to be opaque white
+        cell.backgroundColor = UIColor(ciColor: CIColor(red: 255, green: 255, blue: 255, alpha: 0.25))
 
         return cell
     }
