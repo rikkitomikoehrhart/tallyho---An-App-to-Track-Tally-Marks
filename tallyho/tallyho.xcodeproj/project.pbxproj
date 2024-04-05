@@ -13,6 +13,7 @@
 		EB08580A2BB8C2FD00B8502D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0858092BB8C2FD00B8502D /* Assets.xcassets */; };
 		EB08580D2BB8C2FD00B8502D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EB08580C2BB8C2FD00B8502D /* Base */; };
 		EB0858182BB8CDF700B8502D /* Controllers in Resources */ = {isa = PBXBuildFile; fileRef = EB0858172BB8CDF700B8502D /* Controllers */; };
+		EBAFB8C52BC03DDE00CC0B2F /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EB08580C2BB8C2FD00B8502D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB08580E2BB8C2FD00B8502D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB0858172BB8CDF700B8502D /* Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controllers; sourceTree = "<group>"; };
+		EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoalsTableViewController.swift; path = Controllers/GoalsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				EB0858092BB8C2FD00B8502D /* Assets.xcassets */,
 				EB08580B2BB8C2FD00B8502D /* LaunchScreen.storyboard */,
 				EB08580E2BB8C2FD00B8502D /* Info.plist */,
+				EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */,
 			);
 			path = tallyho;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB0858012BB8C2FA00B8502D /* AppDelegate.swift in Sources */,
+				EBAFB8C52BC03DDE00CC0B2F /* GoalsTableViewController.swift in Sources */,
 				EB0858032BB8C2FA00B8502D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
