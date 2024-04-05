@@ -32,27 +32,25 @@ class GoalsTableViewController: UITableViewController {
     var sections: [Section] = []
     
     
+    // Loading
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Test Sample Section
         sections = [workSection, homeSection, selfCareSection, communitySection]
         
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        
-        
+    
         
         // This sets the background of the table view to the orange and blue gradient background image
         tableView.backgroundView = UIImageView(image: UIImage(named: "orangebluebackground"))
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     
     
     
@@ -69,29 +67,53 @@ class GoalsTableViewController: UITableViewController {
     
     // Populates the cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath) as! GoalsTableViewCell
         
         // Grabs the current goal
         let goal = sections[indexPath.section].goals[indexPath.row]
         
-        // Grabs the goal icon and sets a fixed width
-        let goalIcon = String(goal.icon).padding(toLength: 5, withPad: " ", startingAt: 0)
-        
-        // Sets the content for the cell
-        var content = cell.defaultContentConfiguration()
-        content.text = "\(goalIcon) \(goal.name)"
-        content.secondaryText = "\(goal.tallys)"
-        
-        // Sets the cell's content
-        cell.contentConfiguration = content
+        // Configure the cell
+        cell.update(with: goal)
         
         // Sets the background of the cell to be opaque white
         cell.backgroundColor = UIColor(ciColor: CIColor(red: 255, green: 255, blue: 255, alpha: 0.25))
+        
+        // Allows Cells to reorder:
+        cell.showsReorderControl = true
 
         return cell
     }
     
 
+    // Selects Row
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let goal = sections[indexPath.section].goals[indexPath.row]
+        print("\(goal.name) -- \(goal.tallys)")
+    }
+    
+    
+    // Rearranges Rows
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        // Grab the starting section
+        var fromSection = sections[fromIndexPath.section]
+        
+        // Grab the goal you want to move while removing it
+        var movedGoal = fromSection.goals.remove(at: fromIndexPath.row)
+        
+        // Grab the Ending section
+        var toSection = sections[to.section]
+        
+        // Insert the goal into the Ending section in the ending position
+        toSection.goals.insert(movedGoal, at: to.row)
+    }
+    
+    
+    // Editing Rows
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -112,12 +134,6 @@ class GoalsTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -137,4 +153,16 @@ class GoalsTableViewController: UITableViewController {
     }
     */
 
+    // NAV BAR BUTTON ACTIONS
+    
+    
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        let tableViewEditingMode = tableView.isEditing
+        
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
+    
+    
+    
+    
 }
