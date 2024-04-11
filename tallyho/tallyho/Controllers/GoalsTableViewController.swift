@@ -10,7 +10,9 @@ import UIKit
 class GoalsTableViewController: UITableViewController {
     
     
-    // Test Sample Goals
+    /*
+    ***************     SAMPLE DATA     ***************
+                                                     */
     var workSection = Section(name: "Work", goals: [
         Goal(name: "Contracts in 2024", description: "How many Contracts we've gotten in 2024", tallys: 4, icon: "💼"),
         Goal(name: "Lunches with Clients", description: "How many times we've gone out for lunches with clients in 2024", tallys: 32, icon: "🍲")
@@ -34,7 +36,9 @@ class GoalsTableViewController: UITableViewController {
     
     
     
-    // OUTLETS
+    /*
+    ***************     OUTLETS AND VARIABLES     ***************
+                                                               */
     
     
     
@@ -42,14 +46,14 @@ class GoalsTableViewController: UITableViewController {
     
     
     
-    // Loading
+    /*
+    ***************     LOADS AND LOADING     ***************
+                                                           */
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Test Sample Section
         sections = [workSection, homeSection, selfCareSection, communitySection]
-        
-    
         
         // This sets the background of the table view to the orange and blue gradient background image
         tableView.backgroundView = UIImageView(image: UIImage(named: "orangebluebackground"))
@@ -65,18 +69,34 @@ class GoalsTableViewController: UITableViewController {
     
     
     
-    // Populates the number of sections
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    /* 
+    ***************     POPULATES THE SECTIONS     ***************
+                                                                */
+     override func numberOfSections(in tableView: UITableView) -> Int {
+        // Returns the number of sections to populate
         return sections.count
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // Sets the section titles to the section names
+        return sections[section].name
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        // Sets the section header to white and adds a top padding
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.textLabel?.textColor = .white
+            tableView.sectionHeaderTopPadding = 15.0
+        }
+    }
 
-    // Populates the number of rows in a section
+    /*
+    ***************     POPULATES THE ROWS     ***************
+                                                            */
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].goals.count
     }
-
     
-    // Populates the cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath) as! GoalsTableViewCell
         
@@ -96,14 +116,11 @@ class GoalsTableViewController: UITableViewController {
     }
     
 
-    // Selects Row
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let goal = sections[indexPath.section].goals[indexPath.row]
-        print("\(goal.name) -- \(goal.tallys)")
-    }
     
     
-    // Rearranges Rows
+    /*
+    ***************     EDITS/DELETES THE ROWS     ***************
+                                                                */
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         // Grab the starting section
         var fromSection = sections[fromIndexPath.section]
@@ -117,9 +134,6 @@ class GoalsTableViewController: UITableViewController {
         // Insert the goal into the Ending section in the ending position
         toSection.goals.insert(movedGoal, at: to.row)
     }
-    
-    
-    // Editing/Deleting Rows
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
@@ -131,49 +145,40 @@ class GoalsTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+
     
     
     
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    ***************     SELECTS THE ROWS     ***************
+                                                          */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let goal = sections[indexPath.section].goals[indexPath.row]
+        print("\(goal.name) -- \(goal.tallys)")
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-
-    */
-
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // NAV BAR BUTTON ACTIONS
     
     
-    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+    
+    
+    /*
+    ***************     NAV BAR BUTTON ACTIONS     ***************
+                                                                */
+    
+    
+    @IBAction func editButtonTapped(_ sender: UIButton) {
         let tableViewEditingMode = tableView.isEditing
         
         tableView.setEditing(!tableViewEditingMode, animated: true)
+        
     }
+    
+    
+    @IBAction func addButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "addNewGoalSegue", sender: sender)
+    }
+    
+    
+    
     
     
     

@@ -17,6 +17,8 @@
 		EBAFB8C82BC0443200CC0B2F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C72BC0443100CC0B2F /* Goal.swift */; };
 		EBAFB8CA2BC0444F00CC0B2F /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C92BC0444F00CC0B2F /* Section.swift */; };
 		EBAFB8CD2BC0657400CC0B2F /* GoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8CC2BC0657400CC0B2F /* GoalsTableViewCell.swift */; };
+		EBAFB8CF2BC0925B00CC0B2F /* AddGoalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8CE2BC0925B00CC0B2F /* AddGoalTableViewController.swift */; };
+		EBAFB8D12BC0A9BB00CC0B2F /* SelectedGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8D02BC0A9BB00CC0B2F /* SelectedGoalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		EBAFB8C72BC0443100CC0B2F /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		EBAFB8C92BC0444F00CC0B2F /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		EBAFB8CC2BC0657400CC0B2F /* GoalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewCell.swift; sourceTree = "<group>"; };
+		EBAFB8CE2BC0925B00CC0B2F /* AddGoalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddGoalTableViewController.swift; path = Controllers/AddGoalTableViewController.swift; sourceTree = "<group>"; };
+		EBAFB8D02BC0A9BB00CC0B2F /* SelectedGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectedGoalViewController.swift; path = Controllers/SelectedGoalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 				EB08580B2BB8C2FD00B8502D /* LaunchScreen.storyboard */,
 				EB08580E2BB8C2FD00B8502D /* Info.plist */,
 				EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */,
+				EBAFB8CE2BC0925B00CC0B2F /* AddGoalTableViewController.swift */,
+				EBAFB8D02BC0A9BB00CC0B2F /* SelectedGoalViewController.swift */,
 			);
 			path = tallyho;
 			sourceTree = "<group>";
@@ -171,7 +177,9 @@
 				EBAFB8CA2BC0444F00CC0B2F /* Section.swift in Sources */,
 				EBAFB8C82BC0443200CC0B2F /* Goal.swift in Sources */,
 				EB0858012BB8C2FA00B8502D /* AppDelegate.swift in Sources */,
+				EBAFB8D12BC0A9BB00CC0B2F /* SelectedGoalViewController.swift in Sources */,
 				EBAFB8C52BC03DDE00CC0B2F /* GoalsTableViewController.swift in Sources */,
+				EBAFB8CF2BC0925B00CC0B2F /* AddGoalTableViewController.swift in Sources */,
 				EB0858032BB8C2FA00B8502D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
