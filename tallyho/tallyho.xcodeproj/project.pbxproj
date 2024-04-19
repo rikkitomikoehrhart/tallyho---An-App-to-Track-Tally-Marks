@@ -13,6 +13,7 @@
 		EB08580A2BB8C2FD00B8502D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0858092BB8C2FD00B8502D /* Assets.xcassets */; };
 		EB08580D2BB8C2FD00B8502D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EB08580C2BB8C2FD00B8502D /* Base */; };
 		EB0858182BB8CDF700B8502D /* Controllers in Resources */ = {isa = PBXBuildFile; fileRef = EB0858172BB8CDF700B8502D /* Controllers */; };
+		EB9CC3532BD3238000599F7E /* GoalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9CC3522BD3238000599F7E /* GoalTableViewController.swift */; };
 		EBAFB8C52BC03DDE00CC0B2F /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */; };
 		EBAFB8C82BC0443200CC0B2F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C72BC0443100CC0B2F /* Goal.swift */; };
 		EBAFB8CA2BC0444F00CC0B2F /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C92BC0444F00CC0B2F /* Section.swift */; };
@@ -30,6 +31,7 @@
 		EB08580C2BB8C2FD00B8502D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB08580E2BB8C2FD00B8502D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB0858172BB8CDF700B8502D /* Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controllers; sourceTree = "<group>"; };
+		EB9CC3522BD3238000599F7E /* GoalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoalTableViewController.swift; path = tallyho/Controllers/GoalTableViewController.swift; sourceTree = "<group>"; };
 		EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoalsTableViewController.swift; path = Controllers/GoalsTableViewController.swift; sourceTree = "<group>"; };
 		EBAFB8C72BC0443100CC0B2F /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		EBAFB8C92BC0444F00CC0B2F /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		EB0857F42BB8C2F900B8502D = {
 			isa = PBXGroup;
 			children = (
+				EB9CC3522BD3238000599F7E /* GoalTableViewController.swift */,
 				EB0857FF2BB8C2FA00B8502D /* tallyho */,
 				EB0857FE2BB8C2FA00B8502D /* Products */,
 			);
@@ -180,6 +183,7 @@
 				EBAFB8D12BC0A9BB00CC0B2F /* SelectedGoalViewController.swift in Sources */,
 				EBAFB8C52BC03DDE00CC0B2F /* GoalsTableViewController.swift in Sources */,
 				EBAFB8CF2BC0925B00CC0B2F /* AddGoalTableViewController.swift in Sources */,
+				EB9CC3532BD3238000599F7E /* GoalTableViewController.swift in Sources */,
 				EB0858032BB8C2FA00B8502D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

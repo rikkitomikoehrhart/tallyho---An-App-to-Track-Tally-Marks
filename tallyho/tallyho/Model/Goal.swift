@@ -13,4 +13,3 @@ struct Goal {
     var tallys: Int
     var icon: Character
 }
-

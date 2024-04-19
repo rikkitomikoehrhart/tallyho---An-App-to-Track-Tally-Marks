@@ -130,7 +130,7 @@ class GoalsTableViewController: UITableViewController {
         var fromSection = sections[fromIndexPath.section]
         
         // Grab the goal you want to move while removing it
-        var movedGoal = fromSection.goals.remove(at: fromIndexPath.row)
+        let movedGoal = fromSection.goals.remove(at: fromIndexPath.row)
         
         // Grab the Ending section
         var toSection = sections[to.section]
@@ -165,6 +165,30 @@ class GoalsTableViewController: UITableViewController {
     
     
     /*
+    ***************     SEGUE ACTIONS     ***************
+                                                       */
+        
+    @IBSegueAction func goToGoalScreen(_ coder: NSCoder, sender: Any?) -> GoalTableViewController? {
+        var selectedGoal: Goal?
+        
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            selectedGoal = sections[indexPath.section].goals[indexPath.row]
+        }
+        
+        
+        return GoalTableViewController(coder: coder, goal: selectedGoal)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
     ***************     NAV BAR BUTTON ACTIONS     ***************
                                                                 */
     
@@ -176,8 +200,10 @@ class GoalsTableViewController: UITableViewController {
     
     
     
-
     
+    
+
+
     
     
     
