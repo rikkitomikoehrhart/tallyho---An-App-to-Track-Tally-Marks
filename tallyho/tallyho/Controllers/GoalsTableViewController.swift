@@ -56,8 +56,12 @@ class GoalsTableViewController: UITableViewController {
         sections = [workSection, homeSection, selfCareSection, communitySection]
         
         // This sets the background of the table view to the orange and blue gradient background image
-        tableView.backgroundView = UIImageView(image: UIImage(named: "orangebluebackground"))
+        tableView.backgroundView = UIImageView(image: UIImage(named: "BlueGreenBackground"))
+    
         
+        // Adds Edit Button to Nav Bar
+        navigationItem.leftBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         
     }
     
@@ -165,17 +169,14 @@ class GoalsTableViewController: UITableViewController {
                                                                 */
     
     
-    @IBAction func editButtonTapped(_ sender: UIButton) {
-        let tableViewEditingMode = tableView.isEditing
-        
-        tableView.setEditing(!tableViewEditingMode, animated: true)
-        
-    }
     
-    
-    @IBAction func addButtonTapped(_ sender: UIButton) {
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addNewGoalSegue", sender: sender)
     }
+    
+    
+    
+
     
     
     

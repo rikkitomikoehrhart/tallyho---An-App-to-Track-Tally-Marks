@@ -27,7 +27,7 @@ class AddGoalTableViewController: UITableViewController {
 
         
         // This sets the background of the table view to the orange and blue gradient background image
-        tableView.backgroundView = UIImageView(image: UIImage(named: "orangebluebackground"))
+        tableView.backgroundView = UIImageView(image: UIImage(named: "BlueGreenBackground"))
         
         
         

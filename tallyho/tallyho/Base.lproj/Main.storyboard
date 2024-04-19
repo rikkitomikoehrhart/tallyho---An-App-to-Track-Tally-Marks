@@ -86,43 +86,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Goals" id="obl-T3-M7d">
-                        <barButtonItem key="leftBarButtonItem" id="lmQ-Bh-lS0">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="g8T-DG-PbM">
-                                <rect key="frame" x="16" y="5" width="87" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Edit"/>
-                                    </attributedString>
-                                    <color key="baseBackgroundColor" red="0.0" green="0.2666666667" blue="0.62352941179999999" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="editButtonTapped:" destination="dYY-GL-OUQ" eventType="touchUpInside" id="UhN-2h-i3N"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mqd-c7-ukx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="editButtonTapped:" destination="dYY-GL-OUQ" id="6PM-eE-ydB"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="kse-tv-aT5">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Ua-yR-6P6">
-                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Add"/>
-                                    </attributedString>
-                                    <color key="baseBackgroundColor" red="0.0" green="0.2666666667" blue="0.62352941179999999" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="addButtonTapped:" destination="dYY-GL-OUQ" eventType="touchUpInside" id="PA3-nB-RVU"/>
-                                </connections>
-                            </button>
-                            <connections>
-                                <action selector="addButtonTapped:" destination="dYY-GL-OUQ" id="UaU-Vm-8Rl"/>
-                                <segue destination="eaI-QU-EIg" kind="show" identifier="addNewGoalSegue" id="hMe-C6-rSy"/>
+                                <action selector="addButtonTapped:" destination="dYY-GL-OUQ" id="JTB-W3-xb6"/>
+                                <segue destination="eaI-QU-EIg" kind="show" identifier="addNewGoalSegue" id="1Rr-xA-cuR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -140,7 +108,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="orangebluebackground" translatesAutoresizingMaskIntoConstraints="NO" id="AiN-8b-D1j">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlueGreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="AiN-8b-D1j">
                                 <rect key="frame" x="-15" y="-15" width="423" height="882"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -434,7 +402,14 @@
                             <outlet property="delegate" destination="eaI-QU-EIg" id="xYk-Na-eOu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add New Goal" id="diY-4C-YtX"/>
+                    <navigationItem key="navigationItem" title="Add New Goal" id="diY-4C-YtX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0Te-mS-Gwa">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ht3-aa-NlU">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knr-mu-OaK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -471,9 +446,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BlueGreenBackground" width="128" height="119.66666412353516"/>
         <image name="downWhiteArrow" width="166.66667175292969" height="166.66667175292969"/>
         <image name="forwardWhiteArrow" width="230.66667175292969" height="332.66665649414062"/>
-        <image name="orangebluebackground" width="140.33332824707031" height="185"/>
         <image name="upWhiteArrow" width="166.66667175292969" height="166.66667175292969"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

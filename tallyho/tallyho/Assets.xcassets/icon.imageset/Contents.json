@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "1.png",
+      "filename" : "Tallyho.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "1@2x.png",
+      "filename" : "Tallyho 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "1@3x.png",
+      "filename" : "Tallyho 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
