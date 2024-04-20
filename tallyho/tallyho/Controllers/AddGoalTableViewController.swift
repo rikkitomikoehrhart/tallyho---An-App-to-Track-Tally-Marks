@@ -50,16 +50,12 @@ class AddGoalTableViewController: UITableViewController {
         }
     }
 
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AddCell")
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath)
-//        
-//        // Sets background of static cell to opaque
-//        cell.backgroundColor = UIColor(ciColor: CIColor(red: 255, green: 255, blue: 255, alpha: 0.25))
-//        
-//        return cell
-//    }
     
+    
+    
+    /*
+    ***************     LEAVE     ***************
+                                               */
     
 
     

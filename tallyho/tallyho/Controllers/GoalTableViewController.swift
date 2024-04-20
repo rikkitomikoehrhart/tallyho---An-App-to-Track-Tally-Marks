@@ -58,11 +58,6 @@ class GoalTableViewController: UITableViewController {
         // This sets the background of the table view to the orange and blue gradient background image
         tableView.backgroundView = UIImageView(image: UIImage(named: "BlueGreenBackground"))
 
-        
-        
-        // Removes the footer
-        tableView.tableFooterView = nil
-
         // Populates the screen
         updateUI()
         
@@ -107,6 +102,24 @@ class GoalTableViewController: UITableViewController {
         descriptionLabel.text = goal.description
         tallyTotalLabel.text = "\(goal.tallys)"
     }
+    
+    
+    
+    /*
+    ***************     NAV BAR BUTTONS     ***************
+                                                         */
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "goBackToGoalList", sender: sender)
+    }
+    
+    
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        print("Edit Pressed")
+        
+    }
+    
+    
+    
     
     
 }
