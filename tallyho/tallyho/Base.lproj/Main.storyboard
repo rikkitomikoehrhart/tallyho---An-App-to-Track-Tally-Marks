@@ -695,8 +695,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="YGo-yG-C3b">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="saveButtonPressed:" destination="KQa-AR-yJb" id="m7u-0c-Mk0"/>
-                                <segue destination="Cyg-Da-Llh" kind="unwind" unwindAction="unwindSaveToSectionSelectionWithUnwindSegue:" id="Z7I-fu-N0y"/>
+                                <segue destination="Cyg-Da-Llh" kind="unwind" unwindAction="unwindSaveToSectionSelectionWithUnwindSegue:" id="3MZ-fv-drA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

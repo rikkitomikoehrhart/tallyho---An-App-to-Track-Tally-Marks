@@ -14,7 +14,7 @@ class AddSectionTableViewController: UITableViewController {
                                                                                                  */
     
     @IBOutlet var sectionNameTextField: UITextField!
-    
+
 
     
     
@@ -33,7 +33,13 @@ class AddSectionTableViewController: UITableViewController {
 
     }
 
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        if (sectionNameTextField.hasText) {
+            var newSection = Section(name: sectionNameTextField.text!, goals: [])
+            
+            Section.sections.append(newSection)
+        }
+    }
     
     
     
@@ -76,11 +82,7 @@ class AddSectionTableViewController: UITableViewController {
     /*
     ******************************       ACTIONS AND FUNCTIONS      *******************************
                                                                                                  */
-    @IBAction func saveButtonPressed(_ sender: Any) {
-   
-    }
-    
-    
+
     
 
     
