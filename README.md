@@ -13,11 +13,11 @@ This project has no dependcies other than Xcode.
 ---
 
 ## Table of Contents
-- [Features](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks/edit/main/README.md#features)
-- [Getting Started](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks/edit/main/README.md#getting-started)
-- [Usage](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks/edit/main/README.md#usage)
-- [Architecture](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks/edit/main/README.md#architecture)
-- [Conclusion](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks/edit/main/README.md#conclusion)
+- [Features](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks?tab=readme-ov-file#features)
+- [Getting Started](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks?tab=readme-ov-file#getting-started)
+- [Usage](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks?tab=readme-ov-file#usage)
+- [Architecture](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks?tab=readme-ov-file#architecture)
+- [Conclusion](https://github.com/rikkitomikoehrhart/tallyho---An-App-to-Track-Tally-Marks?tab=readme-ov-file#conclusion)
 
 ---
 
