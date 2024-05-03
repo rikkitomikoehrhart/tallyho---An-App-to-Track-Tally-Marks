@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB0029D82BE537C500916193 /* SectionSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0029D72BE537C500916193 /* SectionSelectionTableViewController.swift */; };
 		EB0029DA2BE537F300916193 /* AddSectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0029D92BE537F300916193 /* AddSectionTableViewController.swift */; };
+		EB0029DC2BE5699200916193 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0029DB2BE5699200916193 /* SectionTableViewCell.swift */; };
 		EB0858012BB8C2FA00B8502D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0858002BB8C2FA00B8502D /* AppDelegate.swift */; };
 		EB0858032BB8C2FA00B8502D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0858022BB8C2FA00B8502D /* SceneDelegate.swift */; };
 		EB0858082BB8C2FA00B8502D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EB0858072BB8C2FA00B8502D /* Base */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		EB0029D72BE537C500916193 /* SectionSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionSelectionTableViewController.swift; path = tallyho/Controllers/SectionSelectionTableViewController.swift; sourceTree = "<group>"; };
 		EB0029D92BE537F300916193 /* AddSectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddSectionTableViewController.swift; path = tallyho/Controllers/AddSectionTableViewController.swift; sourceTree = "<group>"; };
+		EB0029DB2BE5699200916193 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		EB0857FD2BB8C2FA00B8502D /* tallyho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tallyho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0858002BB8C2FA00B8502D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB0858022BB8C2FA00B8502D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				EBAFB8CC2BC0657400CC0B2F /* GoalsTableViewCell.swift */,
+				EB0029DB2BE5699200916193 /* SectionTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				EB0029D82BE537C500916193 /* SectionSelectionTableViewController.swift in Sources */,
 				EBAFB8C82BC0443200CC0B2F /* Goal.swift in Sources */,
 				EB0858012BB8C2FA00B8502D /* AppDelegate.swift in Sources */,
+				EB0029DC2BE5699200916193 /* SectionTableViewCell.swift in Sources */,
 				EBAFB8C52BC03DDE00CC0B2F /* GoalsTableViewController.swift in Sources */,
 				EBAFB8CF2BC0925B00CC0B2F /* AddGoalTableViewController.swift in Sources */,
 				EB9CC3532BD3238000599F7E /* GoalTableViewController.swift in Sources */,

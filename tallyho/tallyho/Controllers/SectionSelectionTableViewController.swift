@@ -18,7 +18,6 @@ class SectionSelectionTableViewController: UITableViewController {
     
     
     
-    
     /*
     ********************************       LOADS AND LOADING       ********************************
                                                                                                  */
@@ -32,18 +31,10 @@ class SectionSelectionTableViewController: UITableViewController {
     }
 
     
-    
-    
-    
-    
-    /*
-    **********************************       TABLE SECTIONS      **********************************
-                                                                                                 */
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
-
     
     
     
@@ -53,9 +44,26 @@ class SectionSelectionTableViewController: UITableViewController {
                                                                                                  */
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Section.sections.count
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sectionRow", for: indexPath) as! SectionTableViewCell
+        
+        // Grabs the current section
+        let section = Section.sections[indexPath.row]
+
+        // Configure the cell
+        cell.update(with: section)
+
+        // Sets the background of the cell to be opaque white
+        cell.backgroundColor = UIColor(ciColor: CIColor(red: 255, green: 255, blue: 255, alpha: 0.25))
+        
+        // Allows Cells to reorder:
+        cell.showsReorderControl = true
+
+        return cell
+    }
 
     
     
@@ -73,7 +81,9 @@ class SectionSelectionTableViewController: UITableViewController {
     ********************************       SEGUES AND UNWINDS      ********************************
                                                                                                  */
     // Unwind from Add New Section screen to the Section Selection screen
-    @IBAction func unwindSaveToSectionSelection(unwindSegue: UIStoryboardSegue) {}
+    @IBAction func unwindSaveToSectionSelection(unwindSegue: UIStoryboardSegue) {
+        
+    }
     
     
     

@@ -25,7 +25,7 @@ class GoalTableViewController: UITableViewController {
     @IBOutlet var iconLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var tallyTotalLabel: UILabel!
-    
+    @IBOutlet var multiplerLabel: UILabel!
     
     
     
@@ -101,6 +101,7 @@ class GoalTableViewController: UITableViewController {
         iconLabel.text = "\(goal.icon)"
         descriptionLabel.text = goal.description
         tallyTotalLabel.text = "\(goal.tallys)"
+        multiplerLabel.text = "\(goal.multiplier)"
     }
     
     

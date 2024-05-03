@@ -13,10 +13,15 @@ class AddGoalTableViewController: UITableViewController {
     /*
     ******************************       OUTLETS AND VARIABLES       ******************************
                                                                                                  */
+    var sections: [Section] = []
     
     
     
     
+
+    
+
+
     
     
     /*
@@ -30,8 +35,7 @@ class AddGoalTableViewController: UITableViewController {
         tableView.backgroundView = UIImageView(image: UIImage(named: "BlueGreenBackground"))
         
         
-        
-        
+        print(sections)
         
     }
  
@@ -61,5 +65,12 @@ class AddGoalTableViewController: UITableViewController {
     
     @IBAction func unwindSaveToAddEditGoalScreen(unwindSegue: UIStoryboardSegue) {}
 
+    
+    
+    @IBAction func chooseSectionButtonPressed(_ sender: Any) {
+       
+    }
+    
+    
     
 }

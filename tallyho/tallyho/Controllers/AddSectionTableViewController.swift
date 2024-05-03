@@ -13,8 +13,9 @@ class AddSectionTableViewController: UITableViewController {
     ******************************       OUTLETS AND VARIABLES       ******************************
                                                                                                  */
     
+    @IBOutlet var sectionNameTextField: UITextField!
     
-    
+
     
     
     
@@ -24,6 +25,7 @@ class AddSectionTableViewController: UITableViewController {
                                                                                                  */
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         
         // This sets the background of the table view to the orange and blue gradient background image
@@ -39,10 +41,7 @@ class AddSectionTableViewController: UITableViewController {
     /*
     **********************************       TABLE SECTIONS      **********************************
                                                                                                  */
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+
 
     
     
@@ -53,15 +52,33 @@ class AddSectionTableViewController: UITableViewController {
                                                                                                  */
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
 
     
     
     /*
+    ************************************       APPEARANCE      ************************************
+                                                                                                 */
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        // Sets the section header to white and adds a top padding
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.textLabel?.textColor = .white
+            tableView.sectionHeaderTopPadding = 15.0
+        }
+    }
+    
+    
+    
+    
+    
+    /*
     ******************************       ACTIONS AND FUNCTIONS      *******************************
                                                                                                  */
+    @IBAction func saveButtonPressed(_ sender: Any) {
+   
+    }
     
     
     
@@ -73,6 +90,6 @@ class AddSectionTableViewController: UITableViewController {
     ********************************       SEGUES AND UNWINDS      ********************************
                                                                                                  */
     
-    // Unwind to Section Selection Screen:
+    
     
 }
