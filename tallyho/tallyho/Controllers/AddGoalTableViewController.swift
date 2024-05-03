@@ -11,8 +11,8 @@ class AddGoalTableViewController: UITableViewController {
 
     
     /*
-    ***************     OUTLETS AND VARIABLES     ***************
-                                                               */
+    ******************************       OUTLETS AND VARIABLES       ******************************
+                                                                                                 */
     
     
     
@@ -20,8 +20,8 @@ class AddGoalTableViewController: UITableViewController {
     
     
     /*
-    ***************     LOADS AND LOADING     ***************
-                                                           */
+    ********************************       LOADS AND LOADING       ********************************
+                                                                                                 */
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,8 +40,8 @@ class AddGoalTableViewController: UITableViewController {
 
     
     /*
-    ***************     APPEARANCE     ***************
-                                                    */
+    ************************************       APPEARANCE      ************************************
+                                                                                                 */
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         // Sets the section header to white and adds a top padding
         if let headerView = view as? UITableViewHeaderFooterView {
@@ -53,10 +53,13 @@ class AddGoalTableViewController: UITableViewController {
     
     
     
-    /*
-    ***************     LEAVE     ***************
-                                               */
     
+    
+    /*
+    *******************************       SEGUES AND UNWINDS       ********************************
+                                                                                                 */
+    
+    @IBAction func unwindSaveToAddEditGoalScreen(unwindSegue: UIStoryboardSegue) {}
 
     
 }

@@ -10,9 +10,11 @@ import UIKit
 class GoalsTableViewController: UITableViewController {
     
     
+   
     /*
-    ***************     SAMPLE DATA     ***************
-                                                     */
+    ***********************************       SAMPLE DATA       ***********************************
+                                                                                                 */
+    // Sample data, to be removed once persistence is added!
     var workSection = Section(name: "Work", goals: [
         Goal(name: "Contracts in 2024", description: "How many Contracts we've gotten in 2024", tallys: 4, icon: "💼"),
         Goal(name: "Lunches with Clients", description: "How many times we've gone out for lunches with clients in 2024", tallys: 32, icon: "🍲")
@@ -37,9 +39,8 @@ class GoalsTableViewController: UITableViewController {
     
     
     /*
-    ***************     OUTLETS AND VARIABLES     ***************
-                                                               */
-    
+    ******************************       OUTLETS AND VARIABLES       ******************************
+                                                                                                 */
     
     
     
@@ -47,8 +48,8 @@ class GoalsTableViewController: UITableViewController {
     
     
     /*
-    ***************     LOADS AND LOADING     ***************
-                                                           */
+    ********************************       LOADS AND LOADING       ********************************
+                                                                                                 */
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -73,9 +74,9 @@ class GoalsTableViewController: UITableViewController {
     
     
     
-    /* 
-    ***************     POPULATES THE SECTIONS     ***************
-                                                                */
+    /*
+    ******************************       POPULATES THE SECTIONS       *****************************
+                                                                                                 */
      override func numberOfSections(in tableView: UITableView) -> Int {
         // Returns the number of sections to populate
         return sections.count
@@ -94,9 +95,14 @@ class GoalsTableViewController: UITableViewController {
         }
     }
 
+
+    
+    
+    
     /*
-    ***************     POPULATES THE ROWS     ***************
-                                                            */
+    ********************************       POPULATES THE ROWS       *******************************
+                                                                                                 */
+    // Returns the number of sections
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].goals.count
     }
@@ -123,8 +129,8 @@ class GoalsTableViewController: UITableViewController {
     
     
     /*
-    ***************     EDITS/DELETES THE ROWS     ***************
-                                                                */
+    ******************************       EDIT/DELETES THE ROWS       ******************************
+                                                                                                 */
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         // Grab the starting section
         var fromSection = sections[fromIndexPath.section]
@@ -154,8 +160,8 @@ class GoalsTableViewController: UITableViewController {
     
     
     /*
-    ***************     SELECTS THE ROWS     ***************
-                                                          */
+    *********************************       SELECTS THE ROWS       ********************************
+                                                                                                 */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let goal = sections[indexPath.section].goals[indexPath.row]
         print("\(goal.name) -- \(goal.tallys)")
@@ -165,8 +171,8 @@ class GoalsTableViewController: UITableViewController {
     
     
     /*
-    ***************     SEGUE ACTIONS     ***************
-                                                       */
+    **********************************       SEGUE ACTIONS       **********************************
+                                                                                                 */
         
     @IBSegueAction func goToGoalScreen(_ coder: NSCoder, sender: Any?) -> GoalTableViewController? {
         var selectedGoal: Goal?
@@ -189,8 +195,8 @@ class GoalsTableViewController: UITableViewController {
     
     
     /*
-    ***************     NAV BAR BUTTON ACTIONS     ***************
-                                                                */
+    ******************************       NAV BAR BUTTON ACTIONS       *****************************
+                                                                                                 */
     
     
     
@@ -202,8 +208,11 @@ class GoalsTableViewController: UITableViewController {
     
     
     
+    /*
+    ********************************       SEGUES AND UNWINDS       *******************************
+                                                                                                 */
 
-
+    @IBAction func unwindSaveToGoalsList(unwindSegue: UIStoryboardSegue) {}
     
     
     
