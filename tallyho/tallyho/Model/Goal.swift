@@ -8,6 +8,7 @@
 import Foundation
 
 struct Goal {
+    /* -------     GOAL VARIABLES     ------- */
     var name: String
     var description: String
     var tallys: Int
@@ -15,8 +16,10 @@ struct Goal {
     var multiplier: Int
     
     
+
     
-    // SAMPLE DATA
+    
+    /* -------     SAMPLE DATA     ------- */
     static var workSection = Section(name: "Work", goals: [
         Goal(name: "Contracts in 2024", description: "How many Contracts we've gotten in 2024", tallys: 4, icon: "💼", multiplier: 1),
         Goal(name: "Lunches with Clients", description: "How many times we've gone out for lunches with clients in 2024", tallys: 32, icon: "🍲", multiplier: 1)

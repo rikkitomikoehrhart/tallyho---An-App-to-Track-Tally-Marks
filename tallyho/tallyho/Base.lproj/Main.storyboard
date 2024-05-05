@@ -78,7 +78,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mqd-c7-ukx">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="addButtonTapped:" destination="dYY-GL-OUQ" id="DMs-fS-qeZ"/>
+                                <action selector="addButtonTapped:" destination="dYY-GL-OUQ" id="O4X-mm-KJz"/>
                                 <segue destination="eaI-QU-EIg" kind="show" identifier="addNewGoalSegue" destinationCreationSelector="goToAddEditScreen:" id="1Rr-xA-cuR"/>
                             </connections>
                         </barButtonItem>
@@ -598,11 +598,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Selection Section" largeTitleDisplayMode="always" id="DvN-WW-NQx">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="SuZ-cZ-gwG">
-                            <connections>
-                                <segue destination="1Tt-Ve-kG5" kind="unwind" unwindAction="unwindSaveToAddEditGoalScreenWithUnwindSegue:" id="u3q-CH-KbV"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bpl-kD-hyi">
                             <connections>
                                 <segue destination="KQa-AR-yJb" kind="show" id="Q4g-RZ-4JM"/>
@@ -611,7 +606,6 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cf-qq-p9J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="1Tt-Ve-kG5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1570" y="-558"/>
         </scene>
@@ -695,22 +689,22 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="YGo-yG-C3b">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="Cyg-Da-Llh" kind="unwind" unwindAction="unwindSaveToSectionSelectionWithUnwindSegue:" id="3MZ-fv-drA"/>
+                                <action selector="saveButtonTapped:" destination="KQa-AR-yJb" id="WX0-o3-j2r"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="YGo-yG-C3b" id="5dW-zR-X3C"/>
                         <outlet property="sectionNameTextField" destination="f5o-wQ-kX6" id="2kd-9m-d6z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRG-Sg-qDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Cyg-Da-Llh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2500" y="-565"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nDe-B0-smH"/>
+        <segue reference="kwe-Lc-njz"/>
         <segue reference="K3O-mg-LD8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

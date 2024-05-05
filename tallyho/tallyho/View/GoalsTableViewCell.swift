@@ -9,14 +9,16 @@ import UIKit
 
 class GoalsTableViewCell: UITableViewCell {
 
-    // OUTLETS
-    
+    /* -------     OUTLETS AND VARIABLES     ------- */
     @IBOutlet var iconLabel: UILabel!
     @IBOutlet var goalTitleLabel: UILabel!
     @IBOutlet var tallyLabel: UILabel!
     
     
     
+    
+    
+    /* -------     TABLE CELL FUNCTIONS     ------- */
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +30,11 @@ class GoalsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    
+    
+    
+    /* -------     UPDATE FUNCTION     ------- */
     func update(with goal: Goal) {
         iconLabel.text = String(goal.icon)
         goalTitleLabel.text = goal.name

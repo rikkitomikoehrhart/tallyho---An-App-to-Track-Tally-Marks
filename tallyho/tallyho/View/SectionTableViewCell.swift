@@ -9,16 +9,15 @@ import UIKit
 
 class SectionTableViewCell: UITableViewCell {
 
-    // OUTLETS and VARIABLES
-    
+    /* -------     OUTLETS AND VARIABLES     ------- */
     @IBOutlet var sectionTitleLabel: UILabel!
     @IBOutlet var goalTotalLabel: UILabel!
     
     
     
+
     
-    // ACTIONS and FUNCTIONS
-    
+    /* -------     TABLE CELL FUNCTIONS     ------- */
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,6 +29,11 @@ class SectionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    
+    
+    
+    /* -------     UPDATE FUNCTION     -------*/
     func update(with section: Section) {
         sectionTitleLabel.text = section.name
         goalTotalLabel.text = String(section.goals.count)

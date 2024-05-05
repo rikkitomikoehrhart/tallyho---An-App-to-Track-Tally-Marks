@@ -9,18 +9,8 @@ import UIKit
 
 class GoalTableViewController: UITableViewController {
 
-    
-    /*
-    ***************     LOCAL VARIABLES     ***************
-                                                         */
+    /* -------     OUTLETS AND VARIABLES     ------- */
     var goal: Goal
-    
-    
-    
-    
-    /*
-    ***************     OUTLETS     ***************
-                                                 */
     
     @IBOutlet var iconLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
@@ -31,15 +21,13 @@ class GoalTableViewController: UITableViewController {
     
     
     
-    
-    /*
-    ***************     LOCAL INITIALIZERS     ***************
-                                                            */
+    /* -------       LOCAL INITIALIZERS     ------- */
     init?(coder: NSCoder, goal: Goal?) {
         self.goal = goal!
         super.init(coder: coder)
     }
     
+    // REQUIRED init
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -48,10 +36,8 @@ class GoalTableViewController: UITableViewController {
     
     
     
-    
-    /*
-    ***************     LOADS AND LOADING     ***************
-                                                           */
+    /* -------     LOADS AND LOADING     ------- */
+    // VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,12 +46,13 @@ class GoalTableViewController: UITableViewController {
 
         // Populates the screen
         updateUI()
-        
-        
     }
     
+    // VIEW WILL APPEAR
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // reloads table data
         tableView.reloadData()
     }
 
@@ -73,29 +60,34 @@ class GoalTableViewController: UITableViewController {
     
 
     
-    /*
-    ***************     APPEARANCE     ***************
-                                                    */
+    /* -------     APPEARANCE     ------- */
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         // Sets the section header to white and adds a top padding
         if let headerView = view as? UITableViewHeaderFooterView {
+            // Changes the text color to white
             headerView.textLabel?.textColor = .white
+            
+            // Adds a top padding
             tableView.sectionHeaderTopPadding = 15.0
         }
     }
     
+    // Changes the footer seciton height to 0
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
 
+    // Changes the header section height to 0
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
     
     
-    /*
-    ***************     POPULATE SCREEN     ***************
-                                                         */
+    
+    
+    
+    /* -------     ACTIONS AND FUNCTIONS     ------- */
+    // UPDATEUI FUNCTION - updates the UI with the current goal's data
     func updateUI() {
         title = goal.name
         iconLabel.text = "\(goal.icon)"
@@ -104,16 +96,7 @@ class GoalTableViewController: UITableViewController {
         multiplerLabel.text = "\(goal.multiplier)"
     }
     
-    
-    
-    /*
-    ***************     NAV BAR BUTTONS     ***************
-                                                         */
-    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "goBackToGoalList", sender: sender)
-    }
-    
-    
+    // When the edit button is pressed - send current goal's information to the Add New button screen
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
         print("Edit Pressed")
         

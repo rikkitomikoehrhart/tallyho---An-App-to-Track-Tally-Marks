@@ -8,11 +8,15 @@
 import Foundation
 
 struct Section {
+    /* -------     SECTION VARIABLES     ------- */
     var name: String
     var goals: [Goal]
     
     
-    // SAMPLE DATA
+    
+    
+    
+    /* -------     SAMPLE DATA     ------- */
     static var sections = [Goal.workSection, Goal.homeSection, Goal.selfCareSection, Goal.communitySection]
     
     

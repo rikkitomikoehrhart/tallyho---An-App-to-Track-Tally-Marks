@@ -9,21 +9,15 @@ import UIKit
 
 class GoalsTableViewController: UITableViewController {
     
-    
-    
-    
-    /*
-    ******************************       OUTLETS AND VARIABLES       ******************************
-                                                                                                 */
+    /* -------     OUTLETS AND VARIABLES     ------- */
+    var goal: Goal?
     
     
     
     
     
-    
-    /*
-    ********************************       LOADS AND LOADING       ********************************
-                                                                                                 */
+    /* -------       LOADS AND LOADING     ------- */
+    // VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,47 +31,41 @@ class GoalsTableViewController: UITableViewController {
         
     }
     
+    // VIEW WILL APPEAR
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // reloads table data
         tableView.reloadData()
     }
     
     
     
     
-    /*
-    ******************************       POPULATES THE SECTIONS       *****************************
-                                                                                                 */
+    
+    /* -------     TABLE SECTIONS     ------- */
+    // POPULATES THE NUMBER OF SECTIONS IN A TABLE
      override func numberOfSections(in tableView: UITableView) -> Int {
         // Returns the number of sections to populate
          return Section.sections.count
     }
     
+    // POPULATES SECTION TITLES
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // Sets the section titles to the section names
         return Section.sections[section].name
     }
     
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        // Sets the section header to white and adds a top padding
-        if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.textLabel?.textColor = .white
-            tableView.sectionHeaderTopPadding = 15.0
-        }
-    }
-
-
     
     
     
-    /*
-    ********************************       POPULATES THE ROWS       *******************************
-                                                                                                 */
-    // Returns the number of sections
+    
+    /* -------       TABLE ROWS     ------- */
+    // POPULATES TJE NUMBER OF ROWS PER SECTION
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Section.sections[section].goals.count
     }
     
+    // FILLS OUT THE INFORMATION IN EACH ROW CELL
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GoalCell", for: indexPath) as! GoalsTableViewCell
         
@@ -96,17 +84,33 @@ class GoalsTableViewController: UITableViewController {
         return cell
     }
     
-    /*
-    *********************************       SELECTS THE ROWS       ********************************
-                                                                                                 */
+    
+    
+    
+    
+    /* -------     APPEARANCE     ------- */
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        // Sets the section header to white and adds a top padding
+        if let headerView = view as? UITableViewHeaderFooterView {
+            // Changes the text color to white
+            headerView.textLabel?.textColor = .white
+            
+            // Adds top padding
+            tableView.sectionHeaderTopPadding = 15.0
+        }
+    }
+
+
+    
+    
+
+    /* -------     ROW FUNCTIONALITY     ------- */
+    // SELECTS THE ROW
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let goal = Section.sections[indexPath.section].goals[indexPath.row]
+        goal = Section.sections[indexPath.section].goals[indexPath.row]
     }
     
-    
-    /*
-    ******************************       EDIT/DELETES THE ROWS       ******************************
-                                                                                                 */
+    // MOVES THE ROW
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         // Grab the starting section
         var fromSection = Section.sections[fromIndexPath.section]
@@ -121,16 +125,21 @@ class GoalsTableViewController: UITableViewController {
         toSection.goals.insert(movedGoal, at: to.row)
     }
     
-    
+    // ALLOWS EDITING THE ROWS -- DELETING
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     
-    
+    // DELETES THE ROWS
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            // If deleting - get the sections list of goals
             var sectionGoals = Section.sections[indexPath.section].goals
+            
+            // Remove the selected goal from that specific list
             sectionGoals.remove(at: indexPath.row)
+            
+            // Delete the row from the table
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
@@ -139,14 +148,17 @@ class GoalsTableViewController: UITableViewController {
     
     
  
+    /* -------     ACTIONS AND FUNCTIONS     ------- */
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "addNewGoalSegue", sender: sender)
+    }
     
     
     
     
-    /*
-    ********************************       SEGUES & ACTIONS       *********************************
-                                                                                                 */
-        
+    
+    /* -------     SEGUES AND UNWINDS     ------- */
+    // SEGUE - Goes to Goal Screen - sending the data for the currently selected goal
     @IBSegueAction func goToGoalScreen(_ coder: NSCoder, sender: Any?) -> GoalTableViewController? {
         var selectedGoal: Goal?
         
@@ -158,16 +170,7 @@ class GoalsTableViewController: UITableViewController {
         return GoalTableViewController(coder: coder, goal: selectedGoal)
     }
     
-    
-
-    
-    
-    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "addNewGoalSegue", sender: sender)
-    }
-    
-    
-    
+    // UNWIND - From Add New Goal back to Goals List
     @IBAction func unwindSaveToGoalsList(unwindSegue: UIStoryboardSegue) {}
     
     
