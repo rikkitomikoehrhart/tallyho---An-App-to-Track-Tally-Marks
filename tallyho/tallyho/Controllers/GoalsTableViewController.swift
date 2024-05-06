@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Foundation
 
 class GoalsTableViewController: UITableViewController {
     
     /* -------     OUTLETS AND VARIABLES     ------- */
     var goal: Goal?
-    
+
     
     
     
@@ -28,6 +29,7 @@ class GoalsTableViewController: UITableViewController {
         // Adds Edit Button to Nav Bar
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        
         
     }
     
@@ -60,7 +62,7 @@ class GoalsTableViewController: UITableViewController {
     
     
     /* -------       TABLE ROWS     ------- */
-    // POPULATES TJE NUMBER OF ROWS PER SECTION
+    // POPULATES THE NUMBER OF ROWS PER SECTION
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Section.sections[section].goals.count
     }
@@ -123,6 +125,9 @@ class GoalsTableViewController: UITableViewController {
         
         // Insert the goal into the Ending section in the ending position
         toSection.goals.insert(movedGoal, at: to.row)
+        
+        // Save changes to Phone
+        Section.saveSections()
     }
     
     // ALLOWS EDITING THE ROWS -- DELETING
@@ -133,14 +138,17 @@ class GoalsTableViewController: UITableViewController {
     // DELETES THE ROWS
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // If deleting - get the sections list of goals
-            var sectionGoals = Section.sections[indexPath.section].goals
-            
             // Remove the selected goal from that specific list
-            sectionGoals.remove(at: indexPath.row)
+            Section.sections[indexPath.section].goals.remove(at: indexPath.row)
             
             // Delete the row from the table
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            // Reload the table
+            tableView.reloadData()
+            
+            // Save changes to Phone
+            Section.saveSections()
         }
     }
 
@@ -150,6 +158,10 @@ class GoalsTableViewController: UITableViewController {
  
     /* -------     ACTIONS AND FUNCTIONS     ------- */
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        // Save changes to Phone
+        Section.saveSections()
+        
+        // Perform Segue to Add New Goal screen
         performSegue(withIdentifier: "addNewGoalSegue", sender: sender)
     }
     
@@ -160,6 +172,10 @@ class GoalsTableViewController: UITableViewController {
     /* -------     SEGUES AND UNWINDS     ------- */
     // SEGUE - Goes to Goal Screen - sending the data for the currently selected goal
     @IBSegueAction func goToGoalScreen(_ coder: NSCoder, sender: Any?) -> GoalTableViewController? {
+        // Save changes to Phone
+        Section.saveSections()
+        
+        
         var selectedGoal: Goal?
         
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
@@ -171,7 +187,10 @@ class GoalsTableViewController: UITableViewController {
     }
     
     // UNWIND - From Add New Goal back to Goals List
-    @IBAction func unwindSaveToGoalsList(unwindSegue: UIStoryboardSegue) {}
+    @IBAction func unwindSaveToGoalsList(unwindSegue: UIStoryboardSegue) {
+        // Save changes to Phone
+        Section.saveSections()
+    }
     
     
     

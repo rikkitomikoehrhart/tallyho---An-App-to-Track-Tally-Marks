@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class AddSectionTableViewController: UITableViewController {
     
@@ -25,6 +26,9 @@ class AddSectionTableViewController: UITableViewController {
         
         // This sets the background of the table view to the orange and blue gradient background image
         tableView.backgroundView = UIImageView(image: UIImage(named: "BlueGreenBackground"))
+        
+        // Save changes to Phone
+        Section.saveSections()
     }
 
 
@@ -91,6 +95,9 @@ class AddSectionTableViewController: UITableViewController {
 
                 // Empty the text field so the user can enter another new section
                 self.sectionNameTextField.text = ""
+                
+                // Save changes to Phone
+                Section.saveSections()
             }))
 
             // Shows the alert

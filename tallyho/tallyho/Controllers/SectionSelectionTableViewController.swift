@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import Foundation
 
 class SectionSelectionTableViewController: UITableViewController {
     
     /* -------     OUTLETS AND VARIABLES     -------*/
     var selectedSection: Section?
-    var index: Int = -1
     
     
     
@@ -28,6 +28,10 @@ class SectionSelectionTableViewController: UITableViewController {
         // Adds Edit Button to Nav Bar
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        
+    
+        // Save changes to Phone
+        Section.saveSections()
     }
 
     // VIEW WILL APPEAR
@@ -65,6 +69,14 @@ class SectionSelectionTableViewController: UITableViewController {
         // Allows Cells to reorder:
         cell.showsReorderControl = true
 
+        // Checks if it is the currently selected section and if so adds a checkmark
+        if selectedSection?.name == Section.sections[indexPath.row].name {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
+        // returns the cell
         return cell
     }
 
@@ -75,8 +87,16 @@ class SectionSelectionTableViewController: UITableViewController {
     /* -------     ROW FUNCTIONALITY     ------- */
     // SELECTS ROW
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Once a row is selected, update the variable index to that row's index
-        index = indexPath.row
+        // assigns the selectedSection to the current selected row
+        selectedSection = Section.sections[indexPath.row]
+        
+        // removes the selection view and reloads the table data to populate the checkmark
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
+        
+        // Peform unwind segue, go back to Add New Goal screen with selected section
+        self.performSegue(withIdentifier: "sectionSelectedSegue", sender: self)
+        
     }
 
     // REARRANGES ROWS
@@ -86,6 +106,9 @@ class SectionSelectionTableViewController: UITableViewController {
         
         // Insert the goal into the Ending section in the ending position
         Section.sections.insert(movedSection, at: to.row)
+        
+        // Save changes to Phone
+        Section.saveSections()
     }
     
     // ALLOWS EDITING - DELETION
@@ -98,7 +121,7 @@ class SectionSelectionTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Create a message to alert the user
             var messageToUser = ""
-            var goalsListAmount = Section.sections[indexPath.row].goals.count
+            let goalsListAmount = Section.sections[indexPath.row].goals.count
             if (goalsListAmount > 1) {
                 messageToUser = "Are you sure? If you delete this section, then it's \(goalsListAmount) goals will be deleted too."
             } else if (goalsListAmount == 1) {
@@ -122,6 +145,9 @@ class SectionSelectionTableViewController: UITableViewController {
                 
                 // Deletes the row from the table
                 tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                // Save changes to Phone
+                Section.saveSections()
             }))
             
             // Shows the alert
@@ -143,19 +169,14 @@ class SectionSelectionTableViewController: UITableViewController {
     /* --------     SEGUES AND UNWINDS     ------- */
     // UNWIND - From Add New Seciton Screen to the Section Selection screen
     @IBAction func unwindSaveToSectionSelection(unwindSegue: UIStoryboardSegue) {
+        // Save changes to Phone
+        Section.saveSections()
+        
+    }
+    
 
-        
-    }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "selectedSectionSegue" else { return }
-        
-        if (index > -1) {
-            selectedSection = Section.sections[index]
-        }
-        
-    }
     
     
     

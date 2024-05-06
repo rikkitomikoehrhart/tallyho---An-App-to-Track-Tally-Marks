@@ -167,6 +167,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="upWhiteArrow" imagePlacement="top" title="Button"/>
+                                                    <connections>
+                                                        <action selector="upButtonPressed:" destination="m7X-33-F3R" eventType="touchUpInside" id="4WH-IZ-C2N"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -180,17 +183,19 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qN1-GY-l9p">
-                                        <rect key="frame" x="0.0" y="438.33332824707031" width="430" height="87.666664123535156"/>
+                                        <rect key="frame" x="0.0" y="438.33332824707031" width="430" height="89.666664123535156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qN1-GY-l9p" id="DOR-ho-bcD">
-                                            <rect key="frame" x="0.0" y="0.0" width="430" height="87.666664123535156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="89.666664123535156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="######" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-5R-3FW">
-                                                    <rect key="frame" x="15" y="0.0" width="400" height="87.666666666666671"/>
+                                                    <rect key="frame" x="15" y="0.0" width="400" height="89.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="75"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.31614300610000001" green="0.31614300610000001" blue="0.31614300610000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <size key="shadowOffset" width="2" height="2"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -204,7 +209,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9Ua-NE-uqj">
-                                        <rect key="frame" x="0.0" y="525.99999237060547" width="430" height="150"/>
+                                        <rect key="frame" x="0.0" y="527.99999237060547" width="430" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ua-NE-uqj" id="nyj-5r-aIl">
                                             <rect key="frame" x="0.0" y="0.0" width="430" height="150"/>
@@ -217,6 +222,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="downWhiteArrow" imagePlacement="top" title="Button"/>
+                                                    <connections>
+                                                        <action selector="downButtonPressed:" destination="m7X-33-F3R" eventType="touchUpInside" id="czh-Ac-cU8"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -230,7 +238,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OIT-x5-B0R">
-                                        <rect key="frame" x="0.0" y="675.99999237060547" width="430" height="26.333333969116211"/>
+                                        <rect key="frame" x="0.0" y="677.99999237060547" width="430" height="26.333333969116211"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OIT-x5-B0R" id="E7i-QP-sWw">
                                             <rect key="frame" x="0.0" y="0.0" width="430" height="26.333333969116211"/>
@@ -349,10 +357,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pR9-j6-dOf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="100.33333333333333"/>
+                                                    <rect key="frame" x="5" y="0.0" width="385" height="100.33333333333333"/>
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="X4q-aD-beh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="390" height="100.33333333333333"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="385" height="100.33333333333333"/>
                                                             <color key="backgroundColor" white="1" alpha="0.01" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="GCT-9S-woP"/>
@@ -368,7 +376,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="pR9-j6-dOf" secondAttribute="bottom" id="1M3-FK-wfa"/>
                                                 <constraint firstItem="pR9-j6-dOf" firstAttribute="top" secondItem="C7A-Ia-9Sx" secondAttribute="top" id="Br3-Lg-tCM"/>
                                                 <constraint firstAttribute="trailing" secondItem="pR9-j6-dOf" secondAttribute="trailing" id="Eso-9S-Gg0"/>
-                                                <constraint firstItem="pR9-j6-dOf" firstAttribute="leading" secondItem="C7A-Ia-9Sx" secondAttribute="leading" id="g4o-jh-unr"/>
+                                                <constraint firstItem="pR9-j6-dOf" firstAttribute="leading" secondItem="C7A-Ia-9Sx" secondAttribute="leading" constant="5" id="g4o-jh-unr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -431,7 +439,7 @@
                                                             </constraints>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -457,20 +465,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="YYY-Oz-vTh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359.66666666666669" height="40.666666666666664"/>
+                                                    <rect key="frame" x="10" y="0.0" width="349.66666666666669" height="40.666666666666664"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNf-86-r2I">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359.66666666666669" height="40.666666666666664"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="Choose a Section"/>
-                                                            <connections>
-                                                                <action selector="chooseSectionButtonPressed:" destination="eaI-QU-EIg" eventType="touchUpInside" id="DnT-tW-b0X"/>
-                                                                <segue destination="dT3-Ja-ri7" kind="show" id="nDe-B0-smH"/>
-                                                            </connections>
-                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose A Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAv-1V-UMf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="349.66666666666669" height="40.666666666666664"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="sAv-1V-UMf" firstAttribute="top" secondItem="YYY-Oz-vTh" secondAttribute="top" id="EO8-RU-KIR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="sAv-1V-UMf" secondAttribute="trailing" id="UKd-d2-C3e"/>
                                                         <constraint firstAttribute="height" constant="40.329999999999998" id="jdK-0V-5ML"/>
+                                                        <constraint firstAttribute="bottom" secondItem="sAv-1V-UMf" secondAttribute="bottom" id="q1s-zS-Vuz"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -479,15 +487,14 @@
                                                 <constraint firstItem="YYY-Oz-vTh" firstAttribute="top" secondItem="pcw-IT-977" secondAttribute="top" id="G0g-RJ-ydc"/>
                                                 <constraint firstItem="YYY-Oz-vTh" firstAttribute="top" secondItem="pcw-IT-977" secondAttribute="top" id="JqC-Ib-Jic"/>
                                                 <constraint firstAttribute="trailing" secondItem="YYY-Oz-vTh" secondAttribute="trailing" id="Km5-hZ-KgA"/>
-                                                <constraint firstItem="YYY-Oz-vTh" firstAttribute="leading" secondItem="pcw-IT-977" secondAttribute="leading" id="MFa-zS-XzG"/>
-                                                <constraint firstItem="YYY-Oz-vTh" firstAttribute="leading" secondItem="pcw-IT-977" secondAttribute="leading" id="R2A-dP-V3A"/>
+                                                <constraint firstItem="YYY-Oz-vTh" firstAttribute="leading" secondItem="pcw-IT-977" secondAttribute="leading" constant="10" id="MFa-zS-XzG"/>
                                                 <constraint firstItem="YYY-Oz-vTh" firstAttribute="top" secondItem="pcw-IT-977" secondAttribute="top" id="YMK-d5-c0i"/>
                                                 <constraint firstAttribute="bottom" secondItem="YYY-Oz-vTh" secondAttribute="bottom" id="eY7-Mh-aQp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="dT3-Ja-ri7" kind="show" id="kwe-Lc-njz"/>
+                                            <segue destination="dT3-Ja-ri7" kind="show" identifier="selectASectionSegue" id="kwe-Lc-njz"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -509,7 +516,7 @@
                                                             <color key="backgroundColor" white="0.0" alpha="0.01" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -545,13 +552,20 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ht3-aa-NlU">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="Mae-OI-MjN" kind="unwind" unwindAction="unwindSaveToGoalsListWithUnwindSegue:" id="O9S-ax-OBA"/>
+                                <action selector="saveButtonTapped:" destination="eaI-QU-EIg" id="iYg-C7-251"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="X4q-aD-beh" id="wP5-DT-nIZ"/>
+                        <outlet property="emojiInitialTextField" destination="1Oe-Sa-6wG" id="ydJ-JX-c3P"/>
+                        <outlet property="goalNameTextField" destination="fnF-X7-288" id="o8r-ke-SKz"/>
+                        <outlet property="multiplierTextField" destination="AG3-di-5Mw" id="BvC-KW-tRS"/>
+                        <outlet property="selectASectionLabel" destination="sAv-1V-UMf" id="JTQ-ZL-9Xo"/>
+                        <outlet property="tallyAmountTextField" destination="7pB-b2-Pf7" id="I2L-Kh-h9M"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knr-mu-OaK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Mae-OI-MjN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="640" y="-556"/>
         </scene>
@@ -589,6 +603,7 @@
                                 <connections>
                                     <outlet property="goalTotalLabel" destination="YEk-li-uFb" id="06g-2o-lm7"/>
                                     <outlet property="sectionTitleLabel" destination="vMx-Yv-MdA" id="QOI-qL-8uL"/>
+                                    <segue destination="1Tt-Ve-kG5" kind="unwind" identifier="sectionSelectedSegue" unwindAction="unwindToAddFromSelect:" id="Igi-Ca-KS6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -606,6 +621,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cf-qq-p9J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1Tt-Ve-kG5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1570" y="-558"/>
         </scene>
@@ -704,7 +720,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kwe-Lc-njz"/>
         <segue reference="K3O-mg-LD8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

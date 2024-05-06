@@ -7,7 +7,30 @@
 
 import Foundation
 
-struct Goal {
+
+// Make Character Data Type conform to Codable Protocol
+extension Character: Codable {
+    public init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        let string = try container.decode(String.self)
+        guard !string.isEmpty else {
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Decoder expected a Character but found an empty string.")
+        }
+        guard string.count == 1 else {
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Decoder expected a Character but found a string: \(string)")
+        }
+        self = string[string.startIndex]
+    }
+    
+    public func encode(to encoder: any Encoder) throws {
+        var container = encoder.unkeyedContainer()
+        try container.encode(String(self))
+    }
+}
+
+
+// GOAL STRUCTURE
+struct Goal: Codable {
     /* -------     GOAL VARIABLES     ------- */
     var name: String
     var description: String
@@ -16,7 +39,34 @@ struct Goal {
     var multiplier: Int
     
     
-
+    
+    
+    
+    /* -------     INITIALIZER     ------- */
+    init(name: String, description: String, tallys: Int, icon: Character, multiplier: Int) {
+        self.name = name
+        self.description = description
+        self.tallys = tallys
+        self.icon = icon
+        self.multiplier = multiplier
+    }
+    
+    
+    
+    
+    /* -------     FUNCTIONS     ------- */
+    // Add to tallys by multiplier
+    mutating func addition() {
+        self.tallys += self.multiplier
+    }
+    
+    // Subtract from tallys by multiplier
+    mutating func subtraction() {
+        self.tallys -= self.multiplier
+    }
+    
+    
+    
     
     
     /* -------     SAMPLE DATA     ------- */
