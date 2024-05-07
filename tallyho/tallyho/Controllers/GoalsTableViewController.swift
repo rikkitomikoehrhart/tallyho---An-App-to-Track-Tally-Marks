@@ -114,17 +114,11 @@ class GoalsTableViewController: UITableViewController {
     
     // MOVES THE ROW
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        // Grab the starting section
-        var fromSection = Section.sections[fromIndexPath.section]
-        
         // Grab the goal you want to move while removing it
-        let movedGoal = fromSection.goals.remove(at: fromIndexPath.row)
-        
-        // Grab the Ending section
-        var toSection = Section.sections[to.section]
-        
+        let movedGoal = Section.sections[fromIndexPath.section].goals.remove(at: fromIndexPath.row)
+
         // Insert the goal into the Ending section in the ending position
-        toSection.goals.insert(movedGoal, at: to.row)
+        Section.sections[to.section].goals.insert(movedGoal, at: to.row)
         
         // Save changes to Phone
         Section.saveSections()
