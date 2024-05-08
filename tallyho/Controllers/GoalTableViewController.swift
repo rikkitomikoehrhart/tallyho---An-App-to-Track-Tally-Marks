@@ -10,7 +10,6 @@ import Foundation
 
 class GoalTableViewController: UITableViewController, AddGoalTableViewControllerDelegate {
 
-
     /* -------     OUTLETS AND VARIABLES     ------- */
     var goal: Goal
     var sectionIndex: Int
@@ -26,22 +25,25 @@ class GoalTableViewController: UITableViewController, AddGoalTableViewController
     
     /* -------       LOCAL INITIALIZERS     ------- */
     init?(coder: NSCoder, goal: Goal?) {
+        // Grabs the selected goal from the list
         self.goal = goal!
         self.sectionIndex = 0
         // Get the index for the above goal
         for sectionI in (0 ... (Section.sections.count - 1)) {
-            for goalI in (0 ... (Section.sections[sectionI].goals.count - 1)) {
-                // If the current goal is in the goal list of the current section being looped through
-                if (Section.sections[sectionI].goals[goalI].name == goal!.name) {
-                    // Set the sectionIndex to the index being looped through
-                    self.sectionIndex = sectionI
+            // Checks the current list of goals has any number in it:
+            if (Section.sections[sectionI].goals.count > 0) {
+                for goalI in (0 ... (Section.sections[sectionI].goals.count - 1)) {
+                    // If the current goal is in the goal list of the current section being looped through
+                    if (Section.sections[sectionI].goals[goalI].name == goal!.name) {
+                        // Set the sectionIndex to the index being looped through
+                        self.sectionIndex = sectionI
+                    }
                 }
             }
         }
         super.init(coder: coder)
     }
     
-    // REQUIRED init
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -74,7 +76,6 @@ class GoalTableViewController: UITableViewController, AddGoalTableViewController
         
         // Save changes to Phone
         Section.saveSections()
-        
     }
 
     
@@ -116,12 +117,6 @@ class GoalTableViewController: UITableViewController, AddGoalTableViewController
         descriptionLabel.text = goal.description
         tallyTotalLabel.text = "\(goal.tallys)"
         multiplerLabel.text = "\(goal.multiplier)"
-        
-    }
-    
-    // When the edit button is pressed - send current goal's information to the Add New button screen
-    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
-        print("Edit Pressed")
         
     }
     
@@ -211,7 +206,11 @@ class GoalTableViewController: UITableViewController, AddGoalTableViewController
         return AddGoalTableViewController(coder: coder, goal: goal, section: Section.sections[sectionIndex])!
     }
     
-        
+    // UNWIND - From Add/Edit Goal Screen
+    @IBAction func unwindFromAddEditGoal(unwindSegue: UIStoryboardSegue) {
+        // Save changes to Phone
+        Section.saveSections()
+    }
     
     
 }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-
+/* -------     SECTION STRUCTURE     ------- */
 struct Section: Codable {
+
     /* -------     SECTION VARIABLES     ------- */
     var name: String
     var goals: [Goal]
@@ -45,7 +46,7 @@ struct Section: Codable {
     static let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let archiveURL = documentDirectory.appendingPathComponent("tallyhoGoals").appendingPathExtension("plist")
     
-    
+    // Save To the phone
     static func saveToFile(sections: [Section]) {
         let propertyListEncoder = PropertyListEncoder()
         let codedSections = try?propertyListEncoder.encode(sections)
@@ -53,6 +54,7 @@ struct Section: Codable {
         try? codedSections?.write(to: archiveURL, options: .noFileProtection)
     }
     
+    // Load saved data
     static func loadFromFile() -> [Section]? {
         let propertyListDecoder = PropertyListDecoder()
         if let codedSections = try? Data(contentsOf: archiveURL), let decodedSections = try? propertyListDecoder.decode(Array<Section>.self, from: codedSections) {
@@ -62,8 +64,7 @@ struct Section: Codable {
         }
     }
     
-   
-    
+    // Populate sections with either saved data or from sample data if no saved
     static func populateSections() {
         // Load Data
         if let savedSections = Section.loadFromFile() {
@@ -73,6 +74,7 @@ struct Section: Codable {
         }
     }
     
+    // Save data
     static func saveSections() {
         Section.saveToFile(sections: self.sections)
     }
@@ -81,11 +83,9 @@ struct Section: Codable {
     
     
     
-    
-    /* -------     SAMPLE DATA     ------- */
+        /* -------     SAMPLE DATA     ------- */
     static func sampleSections() -> [Section] {
         let sections = [Goal.workSection, Goal.homeSection, Goal.selfCareSection, Goal.communitySection]
-        
         return sections
     }
     

@@ -8,12 +8,19 @@
 import UIKit
 import Foundation
 
+/* -------     DELEGATE PROTOCOLS     ------- */
 protocol AddGoalTableViewControllerDelegate : NSObjectProtocol {
     // Send Data
     func sendUpdatedGoal(goal: Goal)
 }
 
+
+
+
+
+/* -------     VIEW CONTROLLER     ------ */
 class AddGoalTableViewController: UITableViewController {
+
     /* -------     DELEGATES     ------- */
     weak var delegate : (AddGoalTableViewControllerDelegate)?
     
@@ -26,8 +33,6 @@ class AddGoalTableViewController: UITableViewController {
     var selectedSection: Section?
     
     @IBOutlet var selectASectionLabel: UILabel!
-    
-    
     @IBOutlet var goalNameTextField: UITextField!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var emojiInitialTextField: UITextField!
@@ -61,16 +66,11 @@ class AddGoalTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         // This sets the background of the table view to the orange and blue gradient background image
         tableView.backgroundView = UIImageView(image: UIImage(named: "BlueGreenBackground"))
-        
-        
+                
         // Update UI
         updateView()
-        
-        // Save changes to Phone
-        Section.saveSections()
     }
  
 
@@ -91,29 +91,30 @@ class AddGoalTableViewController: UITableViewController {
 
     
     
+
     
     /* -------     ACTIONS AND FUNCTIONS     ------- */
     // UPDATE UI
     func updateView() {
+        // Grabs the selected goal if one
         guard let goal = goal else { return }
+        // Grabs the selected section if one
         guard let selectedSection = selectedSection else { return }
         
+        // Populates the input fields with the goal and section data
         goalNameTextField.text = goal.name
         descriptionTextView.text = goal.description
         emojiInitialTextField.text = "\(goal.icon)"
         tallyAmountTextField.text = "\(goal.tallys)"
         selectASectionLabel.text = "\(selectedSection.name)"
         multiplierTextField.text = "\(goal.multiplier)"
-        
-        // Save changes to Phone
-        Section.saveSections()
     }
     
     
-    // Validate The user inputs when the save button is tapped
+    // Validate The user inputs when the save button is tapped and saves
     @IBAction func saveButtonTapped(_ sender: Any) {
 
-        // Grab all the inputs
+        // Declare variables for everything that needs to be validated
         var goalName: String
         var description: String
         var emojiInitial: Character
@@ -127,7 +128,6 @@ class AddGoalTableViewController: UITableViewController {
         
         // Start a message to the user
         var errorMessageToUser: String
-        
         errorMessageToUser = "The following changes were made to your New Goal: \n"
         
         
@@ -209,17 +209,18 @@ class AddGoalTableViewController: UITableViewController {
         }
     
         
-        
-        
+        // If Goal is not nil - then user came to Edit
         if ((goal) != nil) {
             // EDIT GOAL SAVE
             
             // Ask user if they want to make any edits:
-            errorMessageToUser += "Would you like to update your goal or make edits?"
+            errorMessageToUser += "Would you like to edit your goal?"
             
             
             // VALIDATE MESSAGE:
+            // Declare a message to user
             var messageToUser: String
+            
             // If any changes were made
             if (changesFlag > 0 ){
                 // Change the message to the error message
@@ -228,6 +229,7 @@ class AddGoalTableViewController: UITableViewController {
                 // Else, no errors, so just ask them to confirm
                 messageToUser = "Update \(goalName) goal?"
             }
+            
             
             // ASK USER TO CONFIRM
             // Create the Alert
@@ -242,9 +244,6 @@ class AddGoalTableViewController: UITableViewController {
             alert.addAction(UIAlertAction(title: "SAVE", style: .default, handler: { [self] (_) in
                 // Creates the new goal:
                 let newGoal = Goal(name: goalName, description: description, tallys: startingTally, icon: emojiInitial, multiplier: multiplier)
-                
-
-                
                 
                 // If Section change
                 if (selectedSection?.name != selectASectionLabel.text) {
@@ -263,17 +262,14 @@ class AddGoalTableViewController: UITableViewController {
                         }
                     }
                     
-                    
                     // Remove the goal from the old section
                     Section.sections[secIndex].goals.remove(at: goalIndex)
                     
                     // Append to new section
                     Section.sections[index].goals.append(newGoal)
                     
-                    
                 } else {
                     // Its the same section:
-                    
                     // Finds the goal index:
                     for goalI in (0 ... (Section.sections[index].goals.count - 1)) {
                         if (goal!.name == Section.sections[index].goals[goalI].name) {
@@ -295,7 +291,6 @@ class AddGoalTableViewController: UITableViewController {
                 
                 // Save changes to Phone
                 Section.saveSections()
-                
             }))
             
             
@@ -306,13 +301,13 @@ class AddGoalTableViewController: UITableViewController {
         } else {
             // ADD NEW GOAL SAVE
             
-            
             // Ask user if they want to make any edits:
             errorMessageToUser += "Would you like to submit or make edits?"
             
-            
             // VALIDATE MESSAGE:
+            // Declare a message to the user
             var messageToUser: String
+            
             // If any changes were made
             if (changesFlag > 0 ){
                 // Change the message to the error message
@@ -335,7 +330,6 @@ class AddGoalTableViewController: UITableViewController {
             alert.addAction(UIAlertAction(title: "SAVE", style: .default, handler: { (_) in
                 // Creates the new goal:
                 let newGoal = Goal(name: goalName, description: description, tallys: startingTally, icon: emojiInitial, multiplier: multiplier)
-                
                 
                 // Adds the newGoal to the selected section
                 Section.sections[index].goals.append(newGoal)
@@ -362,6 +356,7 @@ class AddGoalTableViewController: UITableViewController {
     
 
     
+    
     /* -------     SEGUES AND UNWINDS     ------- */
     // UNWIND - back from Select a Section Screen with Selection
     @IBAction func unwindToAddFromSelect(_ unwindSegue: UIStoryboardSegue) {
@@ -379,8 +374,7 @@ class AddGoalTableViewController: UITableViewController {
             // Changes the label from "Choose A Section" to the choosen section name
             selectASectionLabel.text = selectedSection?.name
         }
-        
-
+    
     }
     
  

@@ -28,7 +28,6 @@ class SectionSelectionTableViewController: UITableViewController {
         // Adds Edit Button to Nav Bar
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
-        
     
         // Save changes to Phone
         Section.saveSections()
@@ -55,6 +54,7 @@ class SectionSelectionTableViewController: UITableViewController {
 
     // POPULATES THE DATA IN EACH ROW
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Declares a new cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "sectionRow", for: indexPath) as! SectionTableViewCell
         
         // Grabs the current section
@@ -68,13 +68,6 @@ class SectionSelectionTableViewController: UITableViewController {
         
         // Allows Cells to reorder:
         cell.showsReorderControl = true
-
-        // Checks if it is the currently selected section and if so adds a checkmark
-        if selectedSection?.name == Section.sections[indexPath.row].name {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
         
         // returns the cell
         return cell
@@ -96,7 +89,6 @@ class SectionSelectionTableViewController: UITableViewController {
         
         // Peform unwind segue, go back to Add New Goal screen with selected section
         self.performSegue(withIdentifier: "sectionSelectedSegue", sender: self)
-        
     }
 
     // REARRANGES ROWS
@@ -121,11 +113,17 @@ class SectionSelectionTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Create a message to alert the user
             var messageToUser = ""
+            
+            // Get the number of goals in the selected section
             let goalsListAmount = Section.sections[indexPath.row].goals.count
+            
+            // Checks if the goals is greater than 1 to make "goal" plural
             if (goalsListAmount > 1) {
                 messageToUser = "Are you sure? If you delete this section, then it's \(goalsListAmount) goals will be deleted too."
+            // Checks if the goals is equal to 1 to make "goal" singular
             } else if (goalsListAmount == 1) {
                 messageToUser = "Are you sure? If you delete this section, then it's \(goalsListAmount) goal will be deleted too."
+            // Else, there are no goals in the list, so just confirm if they want to delete
             } else {
                 messageToUser = "Are you sure you want to delete this section?"
             }
@@ -155,29 +153,4 @@ class SectionSelectionTableViewController: UITableViewController {
 
         }
     }
-    
-    
-    
-    
-    
-    /* -------     ACTIONS AND FUNCTIONS     ------- */
-  
-    
-    
-    
-    
-    /* --------     SEGUES AND UNWINDS     ------- */
-    // UNWIND - From Add New Seciton Screen to the Section Selection screen
-    @IBAction func unwindSaveToSectionSelection(unwindSegue: UIStoryboardSegue) {
-        // Save changes to Phone
-        Section.saveSections()
-        
-    }
-    
-
-    
-    
-    
-    
-    
 }

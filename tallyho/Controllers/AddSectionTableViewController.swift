@@ -22,7 +22,6 @@ class AddSectionTableViewController: UITableViewController {
     // VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         // This sets the background of the table view to the orange and blue gradient background image
         tableView.backgroundView = UIImageView(image: UIImage(named: "BlueGreenBackground"))
@@ -38,7 +37,7 @@ class AddSectionTableViewController: UITableViewController {
     /* -------       TABLE SECTIONS     ------- */
     // POPULATES NUMBER OF SECTIONS TO DISPLAY IN THE TABLE
     override func numberOfSections(in tableView: UITableView) -> Int {
-       // Returns the number of sections to populate
+       // Returns the one Section
         return 1
    }
 
@@ -49,6 +48,7 @@ class AddSectionTableViewController: UITableViewController {
     /* -------       TABLE ROWS     ------- */
     // POPULATES THE NUMBER OF ROWS IN SECTION
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Returns the one row input
         return 1
     }
 
@@ -98,6 +98,9 @@ class AddSectionTableViewController: UITableViewController {
                 
                 // Save changes to Phone
                 Section.saveSections()
+                
+                // Dismiss screen
+                self.dismiss(animated: true, completion: nil)
             }))
 
             // Shows the alert

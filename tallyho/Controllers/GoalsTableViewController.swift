@@ -29,8 +29,6 @@ class GoalsTableViewController: UITableViewController {
         // Adds Edit Button to Nav Bar
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
-        
-        
     }
     
     // VIEW WILL APPEAR
@@ -83,6 +81,7 @@ class GoalsTableViewController: UITableViewController {
         // Allows Cells to reorder:
         cell.showsReorderControl = true
 
+        // Returns the filled out cell
         return cell
     }
     
@@ -107,11 +106,6 @@ class GoalsTableViewController: UITableViewController {
     
 
     /* -------     ROW FUNCTIONALITY     ------- */
-    // SELECTS THE ROW
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        goal = Section.sections[indexPath.section].goals[indexPath.row]
-    }
-    
     // MOVES THE ROW
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         // Grab the goal you want to move while removing it
@@ -152,9 +146,6 @@ class GoalsTableViewController: UITableViewController {
  
     /* -------     ACTIONS AND FUNCTIONS     ------- */
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        // Save changes to Phone
-        Section.saveSections()
-        
         // Perform Segue to Add New Goal screen
         performSegue(withIdentifier: "addNewGoalSegue", sender: sender)
     }
@@ -169,21 +160,16 @@ class GoalsTableViewController: UITableViewController {
         // Save changes to Phone
         Section.saveSections()
         
-        
+        // Declare a Goal
         var selectedGoal: Goal?
         
+        // Assigns the Goal as the selected cell
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
             selectedGoal = Section.sections[indexPath.section].goals[indexPath.row]
         }
         
-        
+        // Goes to Goal View with the selected Goal
         return GoalTableViewController(coder: coder, goal: selectedGoal)
-    }
-    
-    // UNWIND - From Add New Goal back to Goals List
-    @IBAction func unwindSaveToGoalsList(unwindSegue: UIStoryboardSegue) {
-        // Save changes to Phone
-        Section.saveSections()
     }
     
     

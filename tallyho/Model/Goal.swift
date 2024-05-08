@@ -7,8 +7,8 @@
 
 import Foundation
 
-
-// Make Character Data Type conform to Codable Protocol
+/* -------     EXTENSIONS     ------- */
+// Make Character Data Type conform to Codable Protocol so that Goal can conform to Codable
 extension Character: Codable {
     public init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
@@ -29,8 +29,12 @@ extension Character: Codable {
 }
 
 
-// GOAL STRUCTURE
+
+
+
+/* -------     GOAL STRUCTURE     ------- */
 struct Goal: Codable {
+ 
     /* -------     GOAL VARIABLES     ------- */
     var name: String
     var description: String
@@ -55,12 +59,12 @@ struct Goal: Codable {
     
     
     /* -------     FUNCTIONS     ------- */
-    // Add to tallys by multiplier
+    // Adds to tallys by multiplier
     mutating func addition() {
         self.tallys += self.multiplier
     }
     
-    // Subtract from tallys by multiplier
+    // Subtracts from tallys by multiplier
     mutating func subtraction() {
         self.tallys -= self.multiplier
     }
