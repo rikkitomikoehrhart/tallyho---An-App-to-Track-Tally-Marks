@@ -78,6 +78,7 @@ class AddGoalTableViewController: UITableViewController {
 
     
     /* -------     APPEARANCE     ------- */
+    // Updates the appearance of the header
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         // Sets the section header to white and adds a top padding
         if let headerView = view as? UITableViewHeaderFooterView {
@@ -89,7 +90,17 @@ class AddGoalTableViewController: UITableViewController {
         }
     }
 
-    
+    // Updates the row height
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        // For the description row, the height should be double the other rows
+        case 1:
+            return 80
+        // All other rows get regular height
+        default:
+            return 40
+        }
+    }
     
 
     
@@ -183,7 +194,7 @@ class AddGoalTableViewController: UITableViewController {
         }
         
         // Section
-        if (selectASectionLabel.text != "Choose A Section"){
+        if (selectASectionLabel.text != "Select A Section"){
             for section in (0 ... Section.sections.count - 1) {
                 if (Section.sections[section].name == selectASectionLabel.text) {
                     index = section

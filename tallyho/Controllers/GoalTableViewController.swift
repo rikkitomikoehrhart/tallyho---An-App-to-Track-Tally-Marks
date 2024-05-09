@@ -19,7 +19,8 @@ class GoalTableViewController: UITableViewController, AddGoalTableViewController
     @IBOutlet var tallyTotalLabel: UILabel!
     @IBOutlet var multiplerLabel: UILabel!
     
-    
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
     
     
     
@@ -130,6 +131,17 @@ class GoalTableViewController: UITableViewController, AddGoalTableViewController
     
     // Adds to Tally
     @IBAction func upButtonPressed(_ sender: Any) {
+        // Animate Button so that it shrinks a small amount and goes back
+        UIView.animate(withDuration: 0.05, animations: {
+            // Takes 0.1 seconds to scale down the button to .95
+            self.upButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.05, animations: {
+                // Takes 0.1 seconds to scale back up the button to 1
+                self.upButton.transform = CGAffineTransform.identity
+            })
+        })
+        
         // Add to Tally
         goal.addition()
         
@@ -145,6 +157,18 @@ class GoalTableViewController: UITableViewController, AddGoalTableViewController
     
     // Sutracts from Tally
     @IBAction func downButtonPressed(_ sender: Any) {
+        // Animate Button so that it shrinks a small amount and goes back
+        UIView.animate(withDuration: 0.05, animations: {
+            // Takes 0.1 seconds to scale down the button to .95
+            self.downButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.05, animations: {
+                // Takes 0.1 seconds to scale back up the button to 1
+                self.downButton.transform = CGAffineTransform.identity
+            })
+        })
+    
+        
         // Subtract from Tally
         goal.subtraction()
         

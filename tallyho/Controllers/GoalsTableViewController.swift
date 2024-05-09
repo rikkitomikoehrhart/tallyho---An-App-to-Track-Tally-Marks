@@ -25,10 +25,10 @@ class GoalsTableViewController: UITableViewController {
         // This sets the background of the table view to the orange and blue gradient background image
         tableView.backgroundView = UIImageView(image: UIImage(named: "BlueGreenBackground"))
     
-        
         // Adds Edit Button to Nav Bar
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    
     }
     
     // VIEW WILL APPEAR
@@ -37,7 +37,7 @@ class GoalsTableViewController: UITableViewController {
         // reloads table data
         tableView.reloadData()
     }
-    
+  
     
     
     

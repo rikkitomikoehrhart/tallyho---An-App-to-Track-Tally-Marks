@@ -74,22 +74,31 @@ struct Goal: Codable {
     
     
     /* -------     SAMPLE DATA     ------- */
-    static var workSection = Section(name: "Work", goals: [
-        Goal(name: "Contracts in 2024", description: "How many Contracts we've gotten in 2024", tallys: 4, icon: "💼", multiplier: 1),
-        Goal(name: "Lunches with Clients", description: "How many times we've gone out for lunches with clients in 2024", tallys: 32, icon: "🍲", multiplier: 1)
+    static var newGoalSection = Section(name: "Goals!", goals: [
+        Goal(name: "New Goal", description: "From the goals list, create a new goal!", tallys: 10, icon: "⭐️", multiplier: 1),
+        Goal(name: "Edit Goal", description: "From the goals list, click on the goal, and click the edit button. You can edit things like the name, description, icon, tallys, section, or multiplier.", tallys: 1, icon: "🎨", multiplier: 25),
+        Goal(name: "Count Goal", description: "By clicking on the up and down arrows you can increase or decrease the total tallys on the goal.", tallys: 10000, icon: "🧮", multiplier: 1)
     ])
-    static var homeSection = Section(name: "Home", goals: [
-        Goal(name: "Perfect Nights Sleep", description: "Days with perfect nights sleep", tallys: 0, icon: "😴", multiplier: 1),
-        Goal(name: "Cook Dinner", description: "Cooked dinner instead of going out", tallys: 42, icon: "👩‍🍳", multiplier: 1),
-        Goal(name: "Play with Dog", description: "Times played with dog!", tallys: 96, icon: "J", multiplier: 1)
+    static var arrangeGoalsSection = Section(name: "Arrange/Delete Goals", goals: [
+        Goal(name: "Arrange Goals", description: "From the goals list, you can click the edit button and arrange the goals in whichever order or change sections", tallys: 13, icon: "↩️", multiplier: 13),
+        Goal(name: "Delete Goal", description: "From the goals list, you can click the edit button and then select the red circle to the left of the goal you wish to delete and then click delete", tallys: -300, icon: "✂️", multiplier: 9)
     ])
-    static var selfCareSection = Section(name: "Self-Care", goals: [
-        Goal(name: "Meditation Minutes", description: "Minutes Meditating in 2024", tallys: 1_230, icon: "🧘‍♀️", multiplier: 10),
-        Goal(name: "Daily Vegetables", description: "Days where I ate at least 5 servings of fruits or vegetables a day", tallys: 450, icon: "🥦", multiplier: 5),
-        Goal(name: "Video Game Hours", description: "Hours I've played video games in 2024", tallys: 42, icon: "🎮", multiplier: 1),
-        Goal(name: "Date Nights", description: "Date nights with hubby!", tallys: 12, icon: "💕", multiplier: 1)
+    static var sectionsSection = Section(name: "Section", goals: [
+        Goal(name: "New Section", description: "From either the add goal screen or the edit existing goal screen, click on the Select a Section box and click the + sign.", tallys: 11323, icon: "🥳", multiplier: 1),
+        Goal(name: "Arrange/Delete Sections", description: "From either the add goal screen or the edit existing goal screen, click on the Select a Section box and click the Edit button to rearrange the sections or delete them.", tallys: 1990, icon: "🫧", multiplier: 1986),
     ])
-    static var communitySection = Section(name: "Community", goals: [
-        Goal(name: "Participants", description: "How many participents in the Community activity", tallys: 153, icon: "P", multiplier: 1)
+    static var exampleSection = Section(name: "Examples", goals: [
+        Goal(name: "Daily Vegetables", description: "Eat 5 servings of fruits and vegetables a day this year!", tallys: 560, icon: "🥦", multiplier: 5),
+        Goal(name: "Mediation Minutes", description: "Start mediating more! Just a couple minutes before bed", tallys: 173, icon: "🧘🏿‍♀️", multiplier: 1),
+        Goal(name: "Go to bed ontime", description: "Get to bed by 11pm every night, including weekends", tallys: 3, icon: "😴", multiplier: 1),
+        Goal(name: "Cook Dinner", description: "Cook dinner at home instead of getting take out and delivery", tallys: 102, icon: "👩🏻‍🍳", multiplier: 1),
+        Goal(name: "DND - Character Health", description: "My Character's current health", tallys: 41, icon: "🧙🏽‍♀️", multiplier: 1),
+        Goal(name: "Essay Revisions", description: "I want to do at least 5 revisions to my essay, but not more than 10.", tallys: 9, icon: "📝", multiplier: 1),
+        Goal(name: "Days with a cough", description: "How many days I've had my cough", tallys: 3, icon: "🦠", multiplier: 1)
+        
+        
+        
+    
     ])
+
 }

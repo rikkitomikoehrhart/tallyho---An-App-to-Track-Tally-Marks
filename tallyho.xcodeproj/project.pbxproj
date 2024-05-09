@@ -17,6 +17,7 @@
 		EB08580A2BB8C2FD00B8502D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB0858092BB8C2FD00B8502D /* Assets.xcassets */; };
 		EB08580D2BB8C2FD00B8502D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EB08580C2BB8C2FD00B8502D /* Base */; };
 		EB0858182BB8CDF700B8502D /* Controllers in Resources */ = {isa = PBXBuildFile; fileRef = EB0858172BB8CDF700B8502D /* Controllers */; };
+		EB6FB6F22BED2F870099DA53 /* BeVietnamPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB7C0A602BED219700EFE66C /* BeVietnamPro-Regular.ttf */; };
 		EB9CC3532BD3238000599F7E /* GoalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9CC3522BD3238000599F7E /* GoalTableViewController.swift */; };
 		EBAFB8C52BC03DDE00CC0B2F /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */; };
 		EBAFB8C82BC0443200CC0B2F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAFB8C72BC0443100CC0B2F /* Goal.swift */; };
@@ -38,6 +39,7 @@
 		EB08580C2BB8C2FD00B8502D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB08580E2BB8C2FD00B8502D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB0858172BB8CDF700B8502D /* Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controllers; sourceTree = "<group>"; };
+		EB7C0A602BED219700EFE66C /* BeVietnamPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeVietnamPro-Regular.ttf"; sourceTree = "<group>"; };
 		EB9CC3522BD3238000599F7E /* GoalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoalTableViewController.swift; path = tallyho/Controllers/GoalTableViewController.swift; sourceTree = "<group>"; };
 		EBAFB8C42BC03DDE00CC0B2F /* GoalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoalsTableViewController.swift; path = Controllers/GoalsTableViewController.swift; sourceTree = "<group>"; };
 		EBAFB8C72BC0443100CC0B2F /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		EB0857FF2BB8C2FA00B8502D /* tallyho */ = {
 			isa = PBXGroup;
 			children = (
+				EB7C0A612BED219700EFE66C /* fonts */,
 				EBAFB8CB2BC0655A00CC0B2F /* View */,
 				EBAFB8C62BC0442400CC0B2F /* Model */,
 				EB0858172BB8CDF700B8502D /* Controllers */,
@@ -93,6 +96,14 @@
 				EBAFB8CE2BC0925B00CC0B2F /* AddGoalTableViewController.swift */,
 			);
 			path = tallyho;
+			sourceTree = "<group>";
+		};
+		EB7C0A612BED219700EFE66C /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EB7C0A602BED219700EFE66C /* BeVietnamPro-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		EBAFB8C62BC0442400CC0B2F /* Model */ = {
@@ -172,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB03CF202BE9CAB20088F910 /* Controllers in Resources */,
+				EB6FB6F22BED2F870099DA53 /* BeVietnamPro-Regular.ttf in Resources */,
 				EB08580A2BB8C2FD00B8502D /* Assets.xcassets in Resources */,
 				EB08580D2BB8C2FD00B8502D /* Base in Resources */,
 				EB0858182BB8CDF700B8502D /* Controllers in Resources */,
@@ -348,7 +360,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 562Z6A8P47;
+				DEVELOPMENT_TEAM = KYVVA94GUH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = tallyho/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -380,7 +392,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 562Z6A8P47;
+				DEVELOPMENT_TEAM = KYVVA94GUH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = tallyho/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

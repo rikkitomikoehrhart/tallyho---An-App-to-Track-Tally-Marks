@@ -85,7 +85,7 @@ struct Section: Codable {
     
         /* -------     SAMPLE DATA     ------- */
     static func sampleSections() -> [Section] {
-        let sections = [Goal.workSection, Goal.homeSection, Goal.selfCareSection, Goal.communitySection]
+        let sections = [Goal.newGoalSection, Goal.arrangeGoalsSection, Goal.sectionsSection, Goal.exampleSection]
         return sections
     }
     
